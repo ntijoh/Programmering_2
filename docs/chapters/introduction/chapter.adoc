@@ -1,0 +1,84 @@
+= Introduktion
+
+== Vad är OOP?
+
+Objektorienterad Programmering ("OOP") är en programmeringsparadigm - det vill säga ett sätt att strukturera hur man skriver kod. 
+
+I objektorienterad programmering skriver man så kallade *Klasser*. I klasserna man kan lagra data (*attribut*) och beteenden (*metoder*) som interagerar med datan.
+
+När man skapat en klass, kan man sen skapa *objekt* (*instanser*) av klassen som man sedan kan anropa metoderna på. Datan (attributen) i varje instans är separat från alla andra instansers data.
+
+[NOTE]
+.Exempel
+====
+En liknelse kan vara att alla människor har ett namn (attribut), och har beteendet att säga sitt namn (en metod som säger "Hej, jag heter \<<namn>>"), men alla människor är unika varelser med egna, unika namn. 
+
+I liknelsen skulle det alltså finnas en klass som heter Människa. Människa-klassen har instans-attributet `namn`, och instans-metoden `hälsning`. I en familj skulle alla (mänskliga) medlemmar vara instanser av klassen Människa.
+
+====
+
+Rätt använt gör OOP det enklare att skriva större, mer komplex mjukvara eftersom man då kan
+
+1. Återanvända kod - för att skapa en ny människa gör man bara en ny instans av människo-klassen och ger hen ett namn.
+2. Lagra data för en instans på samma ställe som metoder för att manipulera datan
+3. Förhindra att (andra) utvecklare manipulerar datan på felaktigt sätt genom så kallad *inkapsling*.
+4. Göra varianter av klasser genom att skapa *subklasser* som återanvänder all kod från en annan klass, men med mindre ändringar eller tillägg.
+
+Ruby är ett _extremt_ objektorienterat språk - faktum är att det ni i Programmering 1 kallat för datatyper (t.ex strängar, flyttal och arrayer) egentligen är klasser - i det här fallet klasserna `String`, `Float` och `Array`
+
+[NOTE]
+.Exempel på klasser i Ruby
+====
+[source, ruby, linenums]
+----
+irb(main):001:0> en_string = "Hello OOP" #=> "Hello OOP" <1>
+irb(main):002:0> en_float = 13.37        #=> 13.37 <1>
+irb(main):003:0> en_array = [1,2,3]      #=> [1, 2, 3] <1>
+irb(main):004:0> en_string.class         #=> String <2>
+irb(main):005:0> en_float.class          #=> Float <2>
+irb(main):006:0> en_array.class          #=> Array <2>
+----
+<1> Här skapas instanser (objekt) av klasserna `String`/`Float`/`Array`. Det som tilldelas variablerna är alltså en instans av respektive klass.
+<2> Här anropas instans-metoden `class` på respektive instans. Metoden `class` finns fördefinerad i alla klasser.
+====
+
+== Varför används OOP?
+
+Objektorienterad programmering används av flera olika anledningar som mer eller mindre flyter ihop.
+
+=== Struktur
+
+OOP kan användas för att strukturera kod - t.ex ligger alla metoder (funktioner) som har med matematik att göra i `Math`-klassen, t.ex `Math.sqrt` och `Math.sin` och allt som har med tid att göra i `Time`-klassen, t.ex `Time.now`. 
+
+Att gruppera kod på detta vis gör det enklare för en utvecklare att veta var hen ska kolla för att hitta en viss metod, eller var hen ska skriva en ny metod.
+
+[NOTE]
+.Exempel
+====
+[source, ruby, linenums]
+----
+Math.sqrt(16) #=> 4 <1>
+Math.cos(0)   #=> 1.0 <1>
+Time.now	  #=> 2022-08-22 10:42:05.348957 +0200 <2>
+----
+<1> Två anrop till klass-metoder (`sqrt` och `cos`) på `Math`-klassen
+<2> Ett anrop till klass-metoden `now` som finns definerad i `Time`-klassen.
+====
+
+=== Mall
+
+En mall för att skapa objekt (instanser) som innehåller  attribut (data) och metoder som interagerar med objektets data
+
+=== Modellering
+
+När man ska skapa större program kan man först skapa en "domänmodell" för hur problemområdet (brukar ofta kallas problemdomänen eller enbart domänen) som programmet verkar inom fungerar. Modellen är alltså inte skriven i kod, utan består av text som beskriver hur området fungerar.
+
+T.ex kan en domän vara "Bankväsende". För att skapa modellen för domänen brukar man prata med domänexperter, som vet hur området fungerar.
+
+I domänmodellen brukar man sen kunna identifiera substantiv - t.ex  `Account` och `Transfer` om domänen är "Bankväsende", eller `Student`, `Grade` och `Lesson` om domänen är "Skola och betygssättning" (tänk SchoolSoft), eller `Song` och `Artist` om domänen är "musik" (tänk Spotify). Dessa substantiv kan sen bli klasser när man implementerar modellen i kod.
+
+Om man vidare i domänmodellen ser att det finns vissa verb som är kopplade till ett substantiv kan detta sen bli metoder på substantivets klass. 
+
+Om domänen är "musik" kanske domänexperten säger "You can _play_ a song", vilket indikerar att det ska finnas en `play`-instans-metod på `Song`-klassen. 
+
+Om domänen är "Skola och betygssättning" kanske domänexperten säger "a student can enroll in a course", vilket indikerar att det ska finnas en `enroll`-metod på antingen `Student`- eller `Course`-klassen.

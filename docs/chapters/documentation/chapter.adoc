@@ -1,0 +1,51 @@
+:imagesdir: chapters/documentation/images
+
+= Dokumentation
+
+I _Programmering 1_ förväntades ni skapa funktioner för grundläggande funktionalitet (t.ex sorteringsalgoritmer) själva.
+
+I kursplanen för _Programmering 2_ står det att ni ska kunna använda språkets inbyggda klasser och metoder (dvs, istället för att skriva en egen sorteringsalgoritm bör ni använda `Array`-klassens `#sort`-metod)
+
+Ett språks inbyggda klasser och/eller metoder brukar kallas för dess _standardbibliotek_. 
+
+Rubys standardbibliotek är _enormt_ och det är i det närmaste omöjligt för någon att kunna allt utantill. 
+
+Ni behöver därför kunna hitta och läsa dokumentationen för Rubys standardbibliotek.
+
+[NOTE]
+====
+Rubys standardbibliotek finns dokumenterat på https://ruby-doc.org
+====
+
+Rubys standardbibliotek är helt uppbyggt kring klasser (eftersom Ruby är ett objektorienterat språk). För att hitta i dokumentationen måste man alltså veta namnet på klassen man vill läsa på om.
+
+[NOTE]
+====
+För att hitta dokumentationen är det enklaste att använda en sökmotor som Google.
+
+I google är det bäst att skriva `klassensNamn -site:ruby-doc.org`
+
+(`-site:ruby-doc.org`) gör att man endast får träffar från just ruby-doc.org
+====
+
+När man väl hittat dokumentationen behöver man förstå hur man ska läsa dokumentationssidan:
+
+.String-klassen på ruby-doc.org
+[link=https://ruby-doc.org/core-3.1.2/String.html]
+image::string_documentation_1.png[]
+
+I listan till vänster syns alltså alla metoder som är definerade på klassen. I `String`-klassens fall är det _väldigt_ många. Alla klasser har inte fullt så många, men det finns säkert några som har ännu fler metoder.
+
+[NOTE]
+====
+* Metoder som börjar med `::` (som `::new`) är klass-metoder.
+* Metoder som börjar med `#` (som `#chomp`) är instans-metoder
+====
+
+Klickar man på en metod i listan kommer man till dokumentationen för metoden:
+
+.String#chomp på ruby-doc.org
+[link=https://ruby-doc.org/core-3.1.2/String.html#method-i-chomp]
+image::string_documentation_2.png[]
+
+Ofta skummar jag bara beskrivningen och hoppar direkt till exemplen - det är ofta lättare att förstå _för mig_.

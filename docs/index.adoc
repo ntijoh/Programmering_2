@@ -1,0 +1,18 @@
+:toc: 
+:icons: font
+:source-highlighter: rouge
+:docinfo: private-head
+:sourcedir: docs/chapters
+:code_lang: ruby
+:!figure-caption:
+:hide-uri-scheme:
+:doctype: book
+:toclevels: 3
+:sectnums:
+:warning-icon: icon:info-circle[]
+
+= Programmering 2
+
+include::chapters/introduction/chapter.adoc[leveloffset=+1]
+include::chapters/documentation/chapter.adoc[leveloffset=+1]
+include::chapters/glossary/chapter.adoc[leveloffset=+1]

@@ -1,0 +1,2 @@
+ --pattern '**/*.{adoc,png,jpg,jpeg,gif,svg,rb}' 
+'asciidoctor -D docs --backend=html5 -o index.html -a  toc2 docs/index.adoc'
