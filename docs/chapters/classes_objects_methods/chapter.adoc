@@ -1,0 +1,208 @@
+= Klasser, objekt och metoder
+
+Som nämndes i introduktionen finns det många begrepp i objektorienterad programmering, och alla begreppen är sammankopplade. Därför är det svårt att förklara begreppen utan att nämna begrepp som man inte introducerat än. 
+
+Det är därför helt förståeligt om man blir frustrerad när ni läser nedanstående avsnitt som ofta refererar till och använder begrepp som inte förklarats än. Förhoppningen är att ni, när ni läst hela kapitlet ska kunna läsa om det med förnyad förståelse.
+
+== Klass
+
+Klasser skapas med `class`-nyckelordet, följt av namnet på klassen. - obs, klassens namn _måste_ börja med en versal (stor bokstav) och använder *PascalCase*
+
+[NOTE]
+.En (tämligen menlös) Person-klass
+====
+[source, ruby, linenums]
+----
+class Person <1>
+
+end
+
+----
+<1> Klassdefinition. Avslutas med `end` på rad 3.
+====
+
+== Objekt/Instans
+
+Ett objekt är en instans av en klass. Visst är det en hjälpfull förklaring?
+
+Förenklat kan man säga att allt du kan lagra i en variabel i Ruby är ett objekt (en instans) av en klass.
+
+[NOTE]
+.Exempel på några Objekt
+====
+[source, ruby, linenums]
+----
+number = 42 <1>
+word = "forty-two" <2>
+a_big_number = 9001 <3>
+an_array_of_stuff = [3,1,2,4] <4>
+----
+<1> `number` tilldelas 42 - som är en instans av klassen `Integer`
+<2> `word` tilldelas en sträng, dvs en instans av klassen `String`
+<3> `a_big_number` tilldelas en annan instans av klassen `Integer`
+<4> `an_array_of_stuff` tilldelas en instans av klassen `Array` innehållandes 4 instanser av klassen `Integer`.
+
+
+
+====
+
+
+== Metoder
+
+En metod är en funktion som är definerad i en klass.
+
+[NOTE]
+.Exempel på en metod
+====
+[source, ruby, linenums]
+----
+
+class Person
+
+	def greet <1>
+		"Hello, my name is #{@name}"
+	end
+
+end
+----
+<1> Funktionen greet är definerad inne i klassen `Person` och är alltså inte egentligen en funktion, utan en metod.
+====
+
+=== Konstruktor
+
+För att kunna skapa *instanser*/*objekt* av en klass används en speciell metod som kallas för *konstruktor* (eftersom den konstruerar objektet). I Ruby heter konstruktorn alltid `initialize`. 
+
+För att använda konstruktorn anropar man förvirrande nog metoden `new` på klassen, inte `initialize`. Detta beror på att `new` bland annat allokerar någonstans i minnet att lagra objektet först, innan `initialize` kan anropas. 
+
+Vissa vanliga klasser (t.ex. `Integer`, `String`, `Array` kan skapas genom så kallade *literals*, som tex `x = 1`, `word = "word"`, `numbers = [1,2,3]`)
+
+
+För att lagra data i ett objekt används *instansvariabler*. Instansvariabler har ett `@` före variabelns namn - tänk *attribut* (*@ribut*)
+
+Till skillnad från vanliga variabler som försvinner när metoden körts finns datan i en instansvariabel kvar så länge objektet finns kvar. Man kan därför komma åt samma instansvariabel från olika metoder utan att behöva skicka runt dem manuellt.
+
+[NOTE]
+.En (något mindre menlös) Person-klass
+====
+[source, ruby, linenums]
+----
+class Person
+
+	def initialize(name) <1>
+		@name = name <2>
+	end
+
+end
+
+person1 = Person.new('Agaton Sax') <3>
+=> #<Person:0x000000010467b1a0 @name="Agaton Sax"> <4>
+person2 = Person.new('Ture Sventon') <5>
+=> #<Person:0x000000010463a880 @name="Ture Sventon"> <6>
+
+person1 == person2 => false <7>
+----
+====
+<1> Konstruktor - den här konstruktorn tar ett argument (`name`).
+<2> `@name` är en instansvariabel som sparar värdet av `name` internt i objektet.
+<3> Genom att anropa `Person.new`, och skicka in ett namn, anropas konstruktorn (`initialize`) och en instans/objekt av klassen skapas och tilldelas variabeln `person1`.
+<4> En representation av `person1`-objektet. Först står klassen, sen ett unikt id (minnesadress) och sen följer instansvariablerna
+<5> En annan instans av `Person`-klassen skapas och tilldelas variabeln `person2`
+<6> En representation av `person2`-objektet. Observera hur minessadress och instansvariabel skiljer sig från person1-objektet.
+<7> Jämförelsen visar att de är två olika instanser (även om de är av samma klass).
+
+=== Instansmetod
+
+Instansmetoder är metoder som är definerade på "instans-nivå". Detta innebär att man behöver skapa instanser av klassen för att interagera med metoden. Instansmetoder har tillgång till objektets olika attribut och andra instansmetoder.
+
+Genom att använda instanser, instansmetoder och instansvariabler kan man på ett smidigt sätt spara data (attribut) och metoder att hämta, spara, eller bearbata denna data på stamma ställe i kodbasen.
+
+
+[NOTE]
+.En marginellt användbar Contact-klass med konstruktor och instansmetoder
+====
+[source, ruby, linenums]
+----
+class Contact
+
+	def initialize(name) <1>
+		@name = name  <2>
+		@phone_numbers = [] <2>
+	end
+
+	def add_phone_number(new_number) <3>
+		@phone_numbers << new_number
+	end
+
+	def delete_phone_number(number) <3>
+		@phone_numbers.delete {|num| num == number}
+	end
+
+	def list_numbers <2>
+		puts "#{@name}:"
+		@phone_numbers.each do |number|
+			puts "\t#{number}"
+		end
+	end
+
+end
+
+c1 = Contact.new("Hermione Granger") <4>
+=> #<Contact:0x0000000104bd7ba8 @name="Hermione Granger", @phone_numbers=[]>
+c2 = Contact.new("Ron Weasly") <4>
+=> #<Contact:0x0000000104cc58a8 @name="Ron Weasly", @phone_numbers=[]>
+
+c1.add_phone_number("555-123 45 67") <5>
+c1.add_phone_number("555-765 43 21") <5>
+c2.add_phone_number("555-123 45 67") <5>
+
+c1.list_numbers <6>
+Hermione Granger 
+	555-123 45 67
+	555-765 43 21
+
+c2.list_numbers <6>
+Ron Weasly
+	555-123 45 67
+----
+====
+<1> Konstruktor.
+<2> Instansvariabler
+<3> Instans__metoder__ - kan interagera med _instansvariabler_
+<4> Två olika instanser skapas
+<5> Anrop till instansmetoden `add_number` på de olika objekten.
+<6> Anrop till instansmetoden `list_numbers`
+
+=== Klassmetod
+
+Klassmetoder är metoder som är definerade på "klass-nivå". Detta innebär att man inte behöver skapa instanser av klassen för att interagera med metoden. Klassmetoder har _inte_ tillgång till klassens olika instanser eller deras metoder eller attribut.
+
+Klassmetoder används när det inte är vettigt att först skapa en instans för att använda en metod, och kan primärt ses som ett sett att strukturera kod. Ofta kan man använda moduler och modulmetoder istället för klasser och klassemetoder istället. Se tillexempel `Math.sin` eller `Time.now`.
+
+För att visa att något är en klassmetod brukar man skriva `::` före metodens namn i dokumentation (`Math::sin`, `Time::now`)
+
+För att skapa en klassmetod skriver man `def *self*.metodens_namn`
+
+[NOTE]
+.En Greeting-klass med två klassmetoder
+====
+[source, ruby, linenums]
+----
+class Greeting
+
+	def self.good <1>
+		"Hello, what a wonderful day"
+	end
+
+	def self.bad <1>
+		"What do you want?"
+	end
+end
+
+puts Greeting.good #=> "Hello, what a wonderful day" <2>
+puts Greeting.bad #=> "What do you want?" <2>
+----
+<1> Definition av klassmetoderna `good` och `bad`.
+<2> Anrop av klassmetoderna. Observera att `#new` aldrig anropas.
+====
+
+

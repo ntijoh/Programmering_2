@@ -1,0 +1,3 @@
+= Inkapsling
+
+Ett objekts attribut (instansvariabler) kan endast kommas åt (läsas eller bearbetas) av instansmetoder definerade i klassen. Man brukar säga att instansvariablerna är *privata* medans instansmetoderna är *publika*.

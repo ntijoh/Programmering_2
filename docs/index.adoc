@@ -15,4 +15,7 @@
 
 include::chapters/introduction/chapter.adoc[leveloffset=+1]
 include::chapters/documentation/chapter.adoc[leveloffset=+1]
+include::chapters/classes_objects_methods/chapter.adoc[leveloffset=+1]
+include::chapters/encapsulation/chapter.adoc[leveloffset=+1]
+include::chapters/inheritance/chapter.adoc[leveloffset=+1]
 include::chapters/glossary/chapter.adoc[leveloffset=+1]
