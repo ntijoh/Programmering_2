@@ -684,9 +684,15 @@ pre.rouge {
 </li>
 </ul>
 </li>
-<li><a href="#_inkapsling">4. Inkapsling</a></li>
+<li><a href="#_inkapsling">4. Inkapsling</a>
+<ul class="sectlevel2">
+<li><a href="#_getters_och_setters">4.1. Getters och Setters</a></li>
+<li><a href="#_validering_och_logik">4.2. Validering och logik</a></li>
+</ul>
+</li>
 <li><a href="#_arv">5. Arv</a></li>
-<li><a href="#_ordlista">6. Ordlista</a></li>
+<li><a href="#_klassdiagram">6. Klassdiagram</a></li>
+<li><a href="#_ordlista">7. Ordlista</a></li>
 </ul>
 </div>
 </div>
@@ -738,21 +744,16 @@ pre.rouge {
 <p>Förhindra att (andra) utvecklare manipulerar datan på felaktigt sätt genom så kallad <strong>inkapsling</strong>.</p>
 </li>
 <li>
-<p>Göra varianter av klasser genom att skapa <strong>subklasser</strong> som återanvänder all kod från en annan klass, men med mindre ändringar eller tillägg.</p>
+<p>Använda <strong>arv</strong> och göra varianter av klasser genom att skapa <strong>subklasser</strong> som återanvänder all kod från en annan klass, men med mindre ändringar eller tillägg.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
 <p>Ruby är ett <em>extremt</em> objektorienterat språk - faktum är att det ni i Programmering 1 kallat för datatyper (t.ex strängar, flyttal och arrayer) egentligen är klasser - i det här fallet klasserna <code>String</code>, <code>Float</code> och <code>Array</code></p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="title">Exempel på klasser i Ruby</div>
+<div class="exampleblock">
+<div class="title">Example 1. Några klasser i Ruby</div>
+<div class="content">
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="ruby"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
@@ -782,9 +783,7 @@ pre.rouge {
 </tr>
 </table>
 </div>
-</td>
-</tr>
-</table>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -800,14 +799,9 @@ pre.rouge {
 <div class="paragraph">
 <p>Att gruppera kod på detta vis gör det enklare för en utvecklare att veta var hen ska kolla för att hitta en viss metod, eller var hen ska skriva en ny metod.</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="title">Exempel</div>
+<div class="exampleblock">
+<div class="title">Example 2. Ett par klassmetoder</div>
+<div class="content">
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="ruby"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
@@ -831,9 +825,7 @@ pre.rouge {
 </tr>
 </table>
 </div>
-</td>
-</tr>
-</table>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -982,14 +974,9 @@ pre.rouge {
 <div class="paragraph">
 <p>Klasser skapas med <code>class</code>-nyckelordet, följt av namnet på klassen. - obs, klassens namn <em>måste</em> börja med en versal (stor bokstav) och använder <strong>PascalCase</strong></p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="title">En (tämligen menlös) Person-klass</div>
+<div class="exampleblock">
+<div class="title">Example 3. En (tämligen menlös) Person-klass</div>
+<div class="content">
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="ruby"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
@@ -1009,9 +996,7 @@ pre.rouge {
 </tr>
 </table>
 </div>
-</td>
-</tr>
-</table>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1022,14 +1007,9 @@ pre.rouge {
 <div class="paragraph">
 <p>Förenklat kan man säga att allt du kan lagra i en variabel i Ruby är ett objekt (en instans) av en klass.</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="title">Exempel på några Objekt</div>
+<div class="exampleblock">
+<div class="title">Example 4. Några Objekt</div>
+<div class="content">
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="ruby"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
@@ -1063,9 +1043,7 @@ pre.rouge {
 </tr>
 </table>
 </div>
-</td>
-</tr>
-</table>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1073,14 +1051,9 @@ pre.rouge {
 <div class="paragraph">
 <p>En metod är en funktion som är definerad i en klass.</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="title">Exempel på en metod</div>
+<div class="exampleblock">
+<div class="title">Example 5. En metod</div>
+<div class="content">
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="ruby"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
@@ -1110,9 +1083,7 @@ pre.rouge {
 </tr>
 </table>
 </div>
-</td>
-</tr>
-</table>
+</div>
 </div>
 <div class="sect3">
 <h4 id="_konstruktor">3.3.1. Konstruktor</h4>
@@ -1131,14 +1102,9 @@ pre.rouge {
 <div class="paragraph">
 <p>Till skillnad från vanliga variabler som försvinner när metoden körts finns datan i en instansvariabel kvar så länge objektet finns kvar. Man kan därför komma åt samma instansvariabel från olika metoder utan att behöva skicka runt dem manuellt.</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="title">En (något mindre menlös) Person-klass</div>
+<div class="exampleblock">
+<div class="title">Example 6. En (något mindre menlös) Person-klass</div>
+<div class="content">
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="ruby"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
@@ -1172,9 +1138,7 @@ pre.rouge {
 </pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
-</td>
-</tr>
-</table>
+</div>
 </div>
 <div class="colist arabic">
 <table>
@@ -1217,14 +1181,9 @@ pre.rouge {
 <div class="paragraph">
 <p>Genom att använda instanser, instansmetoder och instansvariabler kan man på ett smidigt sätt spara data (attribut) och metoder att hämta, spara, eller bearbata denna data på stamma ställe i kodbasen.</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="title">En marginellt användbar Contact-klass med konstruktor och instansmetoder</div>
+<div class="exampleblock">
+<div class="title">Example 7. En marginellt användbar Contact-klass med konstruktor och instansmetoder</div>
+<div class="content">
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="ruby"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
@@ -1312,10 +1271,6 @@ pre.rouge {
 </pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
-</td>
-</tr>
-</table>
-</div>
 <div class="colist arabic">
 <table>
 <tr>
@@ -1345,6 +1300,8 @@ pre.rouge {
 </table>
 </div>
 </div>
+</div>
+</div>
 <div class="sect3">
 <h4 id="_klassmetod">3.3.3. Klassmetod</h4>
 <div class="paragraph">
@@ -1359,14 +1316,9 @@ pre.rouge {
 <div class="paragraph">
 <p>För att skapa en klassmetod skriver man <code>def <strong>self</strong>.metodens_namn</code></p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="title">En Greeting-klass med två klassmetoder</div>
+<div class="exampleblock">
+<div class="title">Example 8. En Greeting-klass med två klassmetoder</div>
+<div class="content">
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="ruby"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
@@ -1410,9 +1362,7 @@ pre.rouge {
 </tr>
 </table>
 </div>
-</td>
-</tr>
-</table>
+</div>
 </div>
 </div>
 </div>
@@ -1422,21 +1372,590 @@ pre.rouge {
 <h2 id="_inkapsling">4. Inkapsling</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Ett objekts attribut (instansvariabler) kan endast kommas åt (läsas eller bearbetas) av instansmetoder definerade i klassen. Man brukar säga att instansvariablerna är <strong>privata</strong> medans instansmetoderna är <strong>publika</strong>.</p>
+<p>Inkapsling är ett sätt att förhindra att utvecklare som använder klasser och objekt på fel sätt genom att göra så att klassens attribut och utvalda metoder enbart kan nås inifrån metoder definerade i klassen.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="openblock float-group">
+<div class="content">
+<div class="imageblock related thumb left">
+<div class="content">
+<img src="chapters/encapsulation/images/honor_system.jpg" alt="Honor System" width="500" height="300">
+</div>
+<div class="title">En värld utan inkapsling</div>
+</div>
+<div class="paragraph">
+<p>Ett system för att sälja kaffe <em>utan</em> inkapsling. Personen som ska köpa kaffe får själv fri tillgång till växelkassan, och det är upp till köparen att se till att de betalar, betalar rätt belopp, och att de får rätt växel tillbaka, och att de tar rätt mängd kaffe. Det är lätt att det blir fel - för både köpare och säljare.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="openblock float-group">
+<div class="content">
+<div class="imageblock related thumb left">
+<div class="content">
+<img src="chapters/encapsulation/images/vending_machine.jpg" alt="Vending Machine" width="500" height="300">
+</div>
+<div class="title">En värld med inkapsling</div>
+</div>
+<div class="paragraph">
+<p>Ett system för att sälja varor <em>med</em> inkapsling.</p>
+</div>
+<div class="paragraph">
+<p>Varorna är fysiskt inkapslade, och det enda sättet att komma åt varorna är genom det gränssnitt (knappar, betalningssystem, luckor etc) som finns på maskinen. Det är inte möjligt att komma åt varorna på något annat sätt (åtminstone inte utan att medvetet bryta mot reglerna).</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>På ett liknande sätt som varuautomaten ovan behöver skyddas från att användare använder den på fel sätt, behöver programmerare skydda sina klasser från att användas på fel sätt.</p>
+</div>
+<div class="paragraph">
+<p>I Ruby kan ett objekts attribut (instansvariabler) endast kommas åt (läsas eller bearbetas) av instansmetoder definerade i klassen. Man brukar säga att instansvariablerna är <strong>privata</strong> medans instansmetoderna är <strong>publika</strong>. Detta är ett exempel på inkapsling.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 9. Instansvariabler är privata</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="ruby"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">Person</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+    <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+
+<span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Agaton Sax"</span><span class="p">)</span> <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="c1">#&lt;Person:0x0000000106a388e0 @name="Agaton Sax"&gt;</span>
+<span class="nb">puts</span> <span class="n">person</span><span class="p">.</span><span class="nf">name</span> <i class="conum" data-value="2"></i><b>(2)</b>
+<span class="c1"># =&gt; undefined method `name' for #&lt;Person:0x0000000106a388e0 @name="Agaton Sax"&gt; (NoMethodError) </span><i class="conum" data-value="3"></i><b>(3)</b>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>En instans av klassen <code>Person</code> skapas. Instansvariabeln <code>@name</code> sätts till "Agaton Sax".</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Ett försök att komma åt instansvariabeln <code>@name</code> på objektet <code>person</code>. Detta kommer att ge ett felmeddelande.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Felmeddelandet säger att det inte finns någon metod som heter <code>name</code> på objektet <code>person</code>.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_getters_och_setters">4.1. Getters och Setters</h3>
+<div class="paragraph">
+<p>Eftersom instansvariabler är privata, och instansmetoder är publika, innebär det, att om vi vill komma åt instansvariablerna, måste skapa publika metoder som gör det. En <strong>getter</strong> är en metod som hämtar värdet av en instansvariabel, och en <strong>setter</strong> är en metod som sätter värdet av en instansvariabel.</p>
+</div>
+<div class="paragraph">
+<p>Getters och setters har inga speciella egenskaper, de är bara vanliga instansmetoder som "råkar" returnera eller ändra instansvariabler med samma namn som metoderna.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 10. En klass med en getter</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="ruby"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">Person</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+    <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">name</span> <i class="conum" data-value="1"></i><b>(1)</b>
+    <span class="vi">@name</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+
+<span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Agaton Sax"</span><span class="p">)</span> <i class="conum" data-value="2"></i><b>(2)</b>
+<span class="c1">#&lt;Person:0x0000000106a388e0 @name="Agaton Sax"&gt;</span>
+<span class="nb">puts</span> <span class="n">person</span><span class="p">.</span><span class="nf">name</span> <span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span> <span class="c1">#=&gt; "Agaton Sax"</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>instansmetoden <code>name</code> är en getter då den hämtar instanvariabeln <code>@name</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>En instans av klassen <code>Person</code> skapas. Instansvariabeln <code>@name</code> sätts till "Agaton Sax".</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Ett anrop till gettern <code>name</code></td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 11. En klass med en setter</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="ruby"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">Person</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+    <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">name</span><span class="o">=</span><span class="p">(</span><span class="n">new_name</span><span class="p">)</span> <i class="conum" data-value="1"></i><b>(1)</b>
+    <span class="vi">@name</span> <span class="o">=</span> <span class="n">new_name</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+
+<span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Agaton Sax"</span><span class="p">)</span> <i class="conum" data-value="2"></i><b>(2)</b>
+<span class="c1">#&lt;Person:0x0000000106a388e0 @name="Agaton Sax"&gt;</span>
+<span class="nb">puts</span> <span class="n">person</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="s2">"Ture Sventon"</span> <i class="conum" data-value="3"></i><b>(3)</b>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>instansmetoden <code>name=</code> är en setter då den modifierar instanvariabeln <code>@name</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>En instans av klassen <code>Person</code> skapas. Instansvariabeln <code>@name</code> sätts till "Agaton Sax".</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Ett anrop till settern <code>name=</code>, vilket kommer modifiera instansvariabeln <code>@name</code>.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Det går inte att ändra på värdet av en instansvariabel med en getter.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 12. Getters kan bara hämta värden</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="ruby"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">Person</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+    <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">name</span>
+    <span class="vi">@name</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+
+<span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Agaton Sax"</span><span class="p">)</span>
+<span class="n">person</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="s2">"Ture Sventon"</span> <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="c1">#=&gt; undefined method `name=` for #&lt;Person:0x0000000104750580 @name="Agaton Sax"&gt; (NoMethodError) </span><i class="conum" data-value="2"></i><b>(2)</b>
+<span class="nb">name</span> <span class="o">=</span> <span class="n">person</span><span class="p">.</span><span class="nf">name</span> <i class="conum" data-value="3"></i><b>(3)</b>
+<span class="nb">name</span> <span class="o">=</span> <span class="s2">"Ture Sventon"</span> <i class="conum" data-value="3"></i><b>(3)</b>
+<span class="nb">puts</span> <span class="n">person</span><span class="p">.</span><span class="nf">name</span> <span class="o">=&gt;</span> <span class="s2">"Agaton Sax"</span> <i class="conum" data-value="4"></i><b>(4)</b>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Ett försök att använda gettern <code>name</code> för att ändra på instansvariablen</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Felmeddelandet säger att det inte finns någon setter</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Ett försök att "lura" gettern</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Det gick inte att lura gettern</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Setters kan bara ändra värden, inte hämta dem</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 13. Setters kan bara ändra värden</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="ruby"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">Person</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+    <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">name</span><span class="o">=</span><span class="p">(</span><span class="n">new_name</span><span class="p">)</span>
+    <span class="vi">@name</span> <span class="o">=</span> <span class="n">new_name</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+
+<span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Agaton Sax"</span><span class="p">)</span>
+
+<span class="nb">puts</span> <span class="n">person</span><span class="p">.</span><span class="nf">name</span> <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="c1">#=&gt; p.rb:15:in `&lt;main&gt;': undefined method `name' for #&lt;Person:0x0000000106c301e8 @name="Agaton Sax"&gt; (NoMethodError) </span><i class="conum" data-value="2"></i><b>(2)</b>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Ett försök att använda settern <code>name=</code> för att hämta värdet av instansvariabeln <code>@name</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Felmeddelandet säger att det inte finns någon getter</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>I många språk (exempelvis Java) döps getters till <code>get&lt;&lt;AttributetsNamn&gt;&gt;</code> och setters till <code>set&lt;&lt;AttributetsNamn&gt;&gt;</code>. I Ruby är namngivningsstandarden <code>&lt;&lt;attributets_namn&gt;&gt;</code> för getters och <code>&lt;&lt;attributet_namn&gt;&gt;=</code> för setters.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>I ruby finns det tre <strong>macron</strong> som skapar getters och setters automatiskt. <code>attr_reader</code> skapar en getter, <code>attr_writer</code> skapar en setter, och <code>attr_accessor</code> skapar både en getter och en setter.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 14. De olika attr-macrona</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="ruby"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">Contact</span>
+
+  <span class="nb">attr_reader</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:email</span> <i class="conum" data-value="1"></i><b>(1)</b>
+  <span class="nb">attr_writer</span> <span class="ss">:name</span> <i class="conum" data-value="2"></i><b>(2)</b>
+  <span class="nb">attr_accessor</span> <span class="ss">:phone_number</span> <i class="conum" data-value="3"></i><b>(3)</b>
+
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">phone_number</span><span class="p">)</span>
+    <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span>
+    <span class="vi">@email</span> <span class="o">=</span> <span class="n">email</span>
+    <span class="vi">@phone_number</span> <span class="o">=</span> <span class="n">phone_number</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+<span class="n">c</span> <span class="o">=</span> <span class="no">Contact</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Agaton Sax"</span><span class="p">,</span> <span class="s2">"agaton@sax.nu"</span><span class="p">,</span> <span class="s2">"123 45"</span><span class="p">)</span>
+<span class="nb">p</span> <span class="n">c</span><span class="p">.</span><span class="nf">name</span> <i class="conum" data-value="4"></i><b>(4)</b>
+<span class="n">c</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="s2">"Ture Sventon"</span> <i class="conum" data-value="5"></i><b>(5)</b>
+<span class="n">c</span><span class="p">.</span><span class="nf">phone_number</span> <span class="o">=</span> <span class="s2">"123 46"</span> <i class="conum" data-value="6"></i><b>(6)</b>
+<span class="nb">p</span> <span class="n">c</span><span class="p">.</span><span class="nf">phone_number</span> <i class="conum" data-value="7"></i><b>(7)</b>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Skapar en getter för <code>name</code> och <code>email</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Skapar en setter för <code>name</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Skapar en getter och en setter för <code>phone_number</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Använder den autogenererade gettern <code>name</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Använder den autogenererade settern <code>name=</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Använder den autogenererade settern <code>phone_number=</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>Använder den autogenererade gettern <code>phone_number</code></td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>När man skapar sina klasser är det viktigt att fundera på vilka attribut som ska vara publika (med getters och/eller setters), och vilka som ska vara privata.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_validering_och_logik">4.2. Validering och logik</h3>
+<div class="paragraph">
+<p>Ofta vill man att en getter eller setter ska innehålla validering eller annan logik. Då kan man inte använda de olika <code>attr_xxx</code> macrona för att skapa dem, utan måste koda dem för hand.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 15. Validering/logik i en setter</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="ruby"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">Highscore</span>
+
+
+  <span class="k">def</span> <span class="nf">initialize</span>
+    <span class="vi">@score</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">score</span><span class="o">=</span><span class="p">(</span><span class="n">new_score</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">new_score</span> <span class="o">&gt;</span> <span class="vi">@score</span> <i class="conum" data-value="1"></i><b>(1)</b>
+      <span class="vi">@score</span> <span class="o">=</span> <span class="n">new_score</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+<span class="n">hs</span> <span class="o">=</span> <span class="no">Highscore</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">hs</span><span class="p">.</span><span class="nf">score</span> <span class="o">=</span> <span class="mi">100</span> <i class="conum" data-value="2"></i><b>(2)</b>
+<span class="n">hs</span><span class="p">.</span><span class="nf">score</span> <span class="o">=</span> <span class="mi">50</span> <i class="conum" data-value="3"></i><b>(3)</b>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Settern ändrar enbart värdet om det nya värdet är större än det gamla</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Valideringen i settern tillåter ändringen</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Valideringen i settern hindrar ändringen</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 16. Logik i en getter</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="ruby"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">BankAccount</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">oren</span><span class="p">)</span>
+    <span class="vi">@balance</span> <span class="o">=</span> <span class="n">oren</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">balance</span>
+    <span class="vi">@balance</span> <span class="o">/</span> <span class="mf">100.0</span> <i class="conum" data-value="1"></i><b>(1)</b>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+<span class="n">ba</span> <span class="o">=</span> <span class="no">BankAccount</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="nb">p</span> <span class="n">ba</span><span class="p">.</span><span class="nf">balance</span> <span class="o">=&gt;</span> <span class="mf">10.0</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Gettern omvandlar värdet till kronor och ören</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_arv">5. Arv</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Arv är ett sätt att återanvända kod. Genom att skapa <strong>subklasser</strong> av en befintlig klass får subklassen tillgång till <strong>superklassens</strong> attribut och metoder. Det går sen att modifiera ärvda metoder och eller lägga till nya (som inte är tillgängliga i superklassen)</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_klassdiagram">6. Klassdiagram</h2>
+<div class="sectionbody">
 
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ordlista">6. Ordlista</h2>
+<h2 id="_ordlista">7. Ordlista</h2>
 <div class="sectionbody">
 <div class="dlist glossary">
 <dl>
+<dt>arv</dt>
+<dd>
+<p>Ett sätt att återanvända kod genom att skapa subklasser. En klass som ärver från en annan klass ärver dess metoder och attribut.</p>
+</dd>
 <dt>attribut</dt>
 <dd>
 <p>Data som lagras i en instans, skapas med <em>instansvariabler</em> (variabler som börjar med <code>@</code>, t.ex <code>@phone_number</code>).</p>
@@ -1445,21 +1964,45 @@ pre.rouge {
 <dd>
 <p>Ett sätt att namnge kod (metoder/klasser/variabler etc), där första ordet i namnet börjar med en gemen, och om namnet innehåller flera ord börjar följande ord med en versal <code>points</code>, <code>healthPoints</code>, <code>currentUser</code>. Används <strong>inte</strong> i Ruby (men i t.ex javascript).</p>
 </dd>
+<dt>duck typing</dt>
+<dd>
+<p>Används i dynamiskt typade språk. Om en variabel har de efterfrågade metoderna på sig, spelar det då någon roll vad det är för klass? "If it walks like a duck and quacks like a duck - then it must be a duck"..</p>
+</dd>
+<dt>getter</dt>
+<dd>
+<p>En metod som returnerar värdet på en instansvariabel</p>
+</dd>
 <dt>metod</dt>
 <dd>
-<p>En funktion som är definerad inne i en klass</p>
-</dd>
-<dt>klassmetod</dt>
-<dd>
-<p>En metod som är definerad på klassen. Anropas genom <code>KlassensNamn.metodens_namn</code>. Skapas genom <code>def self.metodens_namn</code></p>
+<p>En funktion som är definerad inne i en klass.</p>
 </dd>
 <dt>instansmetod</dt>
 <dd>
-<p>En metod som anropas på instanser av klassen. Anropas genom <code>instansens_variabel.metodens_namn</code>. Skapas genom <code>def metodens_namn</code></p>
+<p>En metod som anropas på instanser av klassen. Anropas genom <code>instansens_variabel.metodens_namn</code>. Skapas genom <code>def metodens_namn</code>.</p>
 </dd>
 <dt>instansvariabel</dt>
 <dd>
-<p>Se <strong>attribut</strong></p>
+<p>Se <strong>attribut</strong>.</p>
+</dd>
+<dt>kebab-case</dt>
+<dd>
+<p>Ett sätt att namnge kod (metoder/klasser/variabler etc), där varje ord i namnet börjar med en gemen, och om namnet innehåller flera ord länkas de ihop med bindestreck (<code>-</code>). T.ex <code>velocity</code>, <code>current_user</code>, <code>total_time_in_seconds</code>. Används <strong>inte</strong> i Ruby (men i t.ex css).</p>
+</dd>
+<dt>klass</dt>
+<dd>
+<p>En konstruktion i objektorienterade språk som låter dig skapa en mall för objekt eller samla metoder under ett och samma "tak".</p>
+</dd>
+<dt>klassmetod</dt>
+<dd>
+<p>En metod som är definerad på klassen. Anropas genom <code>KlassensNamn.metodens_namn</code>. Skapas genom <code>def self.metodens_namn</code>.</p>
+</dd>
+<dt>konstruktor</dt>
+<dd>
+<p>En speciell metod som används när man skapar instanser/objekt av en klass. Anropas genom <code>KlassensNamn.new</code>.</p>
+</dd>
+<dt>macro</dt>
+<dd>
+<p>Kod som skriver kod.</p>
 </dd>
 <dt>nyckelord</dt>
 <dd>
@@ -1469,21 +2012,25 @@ pre.rouge {
 <dd>
 <p>Ett sätt att namnge kod (metoder/klasser/variabler etc), där varje ord i namnet börjar med en versal. T.ex <code>User</code>, <code>BankAccount</code> eller <code>HTTPRequest</code>. Används i Ruby för klassnamn.</p>
 </dd>
+<dt>setter</dt>
+<dd>
+<p>En metod som kan ändra på en instansvariabels värde.</p>
+</dd>
 <dt>snake_case</dt>
 <dd>
 <p>Ett sätt att namnge kod (metoder/klasser/variabler etc), där varje ord i namnet börjar med en gemen, och om namnet innehåller flera ord länkas de ihop med understreck (<code>_</code>). T.ex <code>amount</code>, <code>current_user</code>, <code>total_time_in_seconds</code>. Används i Ruby för variabler och metoder.</p>
 </dd>
-<dt>kebab-case</dt>
+<dt>subklass</dt>
 <dd>
-<p>Ett sätt att namnge kod (metoder/klasser/variabler etc), där varje ord i namnet börjar med en gemen, och om namnet innehåller flera ord länkas de ihop med bindestreck (<code>-</code>). T.ex <code>velocity</code>, <code>current_user</code>, <code>total_time_in_seconds</code>. Används <strong>inte</strong> i Ruby (men i t.ex css).</p>
+<p>En klass som ärver från en annan klass. T.ex <code>class Student &lt; Person</code> gör att klassen <code>Student</code> ärver från klassen <code>Person</code>.</p>
 </dd>
-<dt>konstruktor</dt>
+<dt>superklass</dt>
 <dd>
-<p>En speciell metod som används när man skapar instanser/objekt av en klass. Anropas genom <code>KlassensNamn.new</code></p>
+<p>En klass som andra klasser ärver från. T.ex kan <code>Person</code> vara en superklass till klassen <code>Student</code>.</p>
 </dd>
 <dt>state</dt>
 <dd>
-<p>Alla variabler och värdet på dessa vid ett givet tillfälle.</p>
+<p>Alla variabler och värdet på dessa vid ett givet tillfälle under tiden programmet körs.</p>
 </dd>
 </dl>
 </div>
@@ -1492,7 +2039,7 @@ pre.rouge {
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-09-15 11:42:46 +0200
+Last updated 2022-09-16 16:06:44 +0200
 </div>
 </div>
 </body>

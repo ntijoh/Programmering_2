@@ -22,12 +22,11 @@ Rätt använt gör OOP det enklare att skriva större, mer komplex mjukvara efte
 1. Återanvända kod - för att skapa en ny människa gör man bara en ny instans av människo-klassen och ger hen ett namn.
 2. Lagra data för en instans på samma ställe som metoder för att manipulera datan
 3. Förhindra att (andra) utvecklare manipulerar datan på felaktigt sätt genom så kallad *inkapsling*.
-4. Göra varianter av klasser genom att skapa *subklasser* som återanvänder all kod från en annan klass, men med mindre ändringar eller tillägg.
+4. Använda *arv* och göra varianter av klasser genom att skapa *subklasser* som återanvänder all kod från en annan klass, men med mindre ändringar eller tillägg.
 
 Ruby är ett _extremt_ objektorienterat språk - faktum är att det ni i Programmering 1 kallat för datatyper (t.ex strängar, flyttal och arrayer) egentligen är klasser - i det här fallet klasserna `String`, `Float` och `Array`
 
-[NOTE]
-.Exempel på klasser i Ruby
+.Några klasser i Ruby
 ====
 [source, ruby, linenums]
 ----
@@ -52,8 +51,7 @@ OOP kan användas för att strukturera kod - t.ex ligger alla metoder (funktione
 
 Att gruppera kod på detta vis gör det enklare för en utvecklare att veta var hen ska kolla för att hitta en viss metod, eller var hen ska skriva en ny metod.
 
-[NOTE]
-.Exempel
+.Ett par klassmetoder
 ====
 [source, ruby, linenums]
 ----

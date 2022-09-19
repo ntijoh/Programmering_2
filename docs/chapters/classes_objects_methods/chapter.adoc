@@ -8,7 +8,6 @@ Det är därför helt förståeligt om man blir frustrerad när ni läser nedans
 
 Klasser skapas med `class`-nyckelordet, följt av namnet på klassen. - obs, klassens namn _måste_ börja med en versal (stor bokstav) och använder *PascalCase*
 
-[NOTE]
 .En (tämligen menlös) Person-klass
 ====
 [source, ruby, linenums]
@@ -27,8 +26,7 @@ Ett objekt är en instans av en klass. Visst är det en hjälpfull förklaring?
 
 Förenklat kan man säga att allt du kan lagra i en variabel i Ruby är ett objekt (en instans) av en klass.
 
-[NOTE]
-.Exempel på några Objekt
+.Några Objekt
 ====
 [source, ruby, linenums]
 ----
@@ -41,9 +39,6 @@ an_array_of_stuff = [3,1,2,4] <4>
 <2> `word` tilldelas en sträng, dvs en instans av klassen `String`
 <3> `a_big_number` tilldelas en annan instans av klassen `Integer`
 <4> `an_array_of_stuff` tilldelas en instans av klassen `Array` innehållandes 4 instanser av klassen `Integer`.
-
-
-
 ====
 
 
@@ -51,8 +46,7 @@ an_array_of_stuff = [3,1,2,4] <4>
 
 En metod är en funktion som är definerad i en klass.
 
-[NOTE]
-.Exempel på en metod
+.En metod
 ====
 [source, ruby, linenums]
 ----
@@ -81,7 +75,6 @@ För att lagra data i ett objekt används *instansvariabler*. Instansvariabler h
 
 Till skillnad från vanliga variabler som försvinner när metoden körts finns datan i en instansvariabel kvar så länge objektet finns kvar. Man kan därför komma åt samma instansvariabel från olika metoder utan att behöva skicka runt dem manuellt.
 
-[NOTE]
 .En (något mindre menlös) Person-klass
 ====
 [source, ruby, linenums]
@@ -117,7 +110,6 @@ Instansmetoder är metoder som är definerade på "instans-nivå". Detta innebä
 Genom att använda instanser, instansmetoder och instansvariabler kan man på ett smidigt sätt spara data (attribut) och metoder att hämta, spara, eller bearbata denna data på stamma ställe i kodbasen.
 
 
-[NOTE]
 .En marginellt användbar Contact-klass med konstruktor och instansmetoder
 ====
 [source, ruby, linenums]
@@ -164,13 +156,13 @@ c2.list_numbers <6>
 Ron Weasly
 	555-123 45 67
 ----
-====
 <1> Konstruktor.
 <2> Instansvariabler
 <3> Instans__metoder__ - kan interagera med _instansvariabler_
 <4> Två olika instanser skapas
 <5> Anrop till instansmetoden `add_number` på de olika objekten.
 <6> Anrop till instansmetoden `list_numbers`
+====
 
 === Klassmetod
 
@@ -182,7 +174,6 @@ För att visa att något är en klassmetod brukar man skriva `::` före metodens
 
 För att skapa en klassmetod skriver man `def *self*.metodens_namn`
 
-[NOTE]
 .En Greeting-klass med två klassmetoder
 ====
 [source, ruby, linenums]
@@ -204,5 +195,3 @@ puts Greeting.bad #=> "What do you want?" <2>
 <1> Definition av klassmetoderna `good` och `bad`.
 <2> Anrop av klassmetoderna. Observera att `#new` aldrig anropas.
 ====
-
-

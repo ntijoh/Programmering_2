@@ -1,1 +1,3 @@
 = Arv
+
+Arv är ett sätt att återanvända kod. Genom att skapa **subklasser** av en befintlig klass får subklassen tillgång till **superklassens** attribut och metoder. Det går sen att modifiera ärvda metoder och eller lägga till nya (som inte är tillgängliga i superklassen)

@@ -1,3 +1,264 @@
+:imagesdir: chapters/encapsulation/images
+
 = Inkapsling
 
-Ett objekts attribut (instansvariabler) kan endast kommas åt (läsas eller bearbetas) av instansmetoder definerade i klassen. Man brukar säga att instansvariablerna är *privata* medans instansmetoderna är *publika*.
+Inkapsling är ett sätt att förhindra att utvecklare som använder klasser och objekt på fel sätt genom att göra så att klassens attribut och utvalda metoder enbart kan nås inifrån metoder definerade i klassen.
+
+
+
+
+****
+[.float-group]
+--
+.En värld utan inkapsling
+image::honor_system.jpg[Honor System,500,300,role="related thumb left"]
+Ett system för att sälja kaffe _utan_ inkapsling. Personen som ska köpa kaffe får själv fri tillgång till växelkassan, och det är upp till köparen att se till att de betalar, betalar rätt belopp, och att de får rätt växel tillbaka, och att de tar rätt mängd kaffe. Det är lätt att det blir fel - för både köpare och säljare.
+--
+****
+
+****
+[.float-group]
+--
+.En värld med inkapsling
+image::vending_machine.jpg[Vending Machine,500,300,role="related thumb left"]
+
+Ett system för att sälja varor _med_ inkapsling.
+
+Varorna är fysiskt inkapslade, och det enda sättet att komma åt varorna är genom det gränssnitt (knappar, betalningssystem, luckor etc) som finns på maskinen. Det är inte möjligt att komma åt varorna på något annat sätt (åtminstone inte utan att medvetet bryta mot reglerna).
+--
+****
+På ett liknande sätt som varuautomaten ovan behöver skyddas från att användare använder den på fel sätt, behöver programmerare skydda sina klasser från att användas på fel sätt.
+
+I Ruby kan ett objekts attribut (instansvariabler) endast kommas åt (läsas eller bearbetas) av instansmetoder definerade i klassen. Man brukar säga att instansvariablerna är *privata* medans instansmetoderna är *publika*. Detta är ett exempel på inkapsling.
+
+.Instansvariabler är privata
+====
+[source, ruby, linenums]
+----
+class Person
+
+  def initialize(name)
+    @name = name
+  end
+
+end
+
+person = Person.new("Agaton Sax") <1>
+#<Person:0x0000000106a388e0 @name="Agaton Sax">
+puts person.name <2>
+# => undefined method `name' for #<Person:0x0000000106a388e0 @name="Agaton Sax"> (NoMethodError) <3>
+----
+<1> En instans av klassen `Person` skapas. Instansvariabeln `@name` sätts till "Agaton Sax".
+<2> Ett försök att komma åt instansvariabeln `@name` på objektet `person`. Detta kommer att ge ett felmeddelande.
+<3> Felmeddelandet säger att det inte finns någon metod som heter `name` på objektet `person`.
+====
+
+== Getters och Setters
+
+Eftersom instansvariabler är privata, och instansmetoder är publika, innebär det, att om vi vill komma åt instansvariablerna, måste skapa publika metoder som gör det. En *getter* är en metod som hämtar värdet av en instansvariabel, och en *setter* är en metod som sätter värdet av en instansvariabel.
+
+Getters och setters har inga speciella egenskaper, de är bara vanliga instansmetoder som "råkar" returnera eller ändra instansvariabler med samma namn som metoderna.
+
+
+.En klass med en getter
+====
+[source, ruby, linenums]
+----
+class Person
+
+  def initialize(name)
+    @name = name
+  end
+
+  def name <1>
+    @name
+  end
+
+end
+
+person = Person.new("Agaton Sax") <2>
+#<Person:0x0000000106a388e0 @name="Agaton Sax">
+puts person.name <3> #=> "Agaton Sax"
+----
+<1> instansmetoden `name` är en getter då den hämtar instanvariabeln `@name`.
+<2> En instans av klassen `Person` skapas. Instansvariabeln `@name` sätts till "Agaton Sax".
+<3> Ett anrop till gettern `name` 
+====
+
+.En klass med en setter
+====
+[source, ruby, linenums]
+----
+class Person
+
+  def initialize(name)
+    @name = name
+  end
+
+  def name=(new_name) <1>
+    @name = new_name
+  end
+
+end
+
+person = Person.new("Agaton Sax") <2>
+#<Person:0x0000000106a388e0 @name="Agaton Sax">
+puts person.name = "Ture Sventon" <3>
+----
+<1> instansmetoden `name=` är en setter då den modifierar instanvariabeln `@name`.
+<2> En instans av klassen `Person` skapas. Instansvariabeln `@name` sätts till "Agaton Sax".
+<3> Ett anrop till settern `name=`, vilket kommer modifiera instansvariabeln `@name`. 
+====
+
+Det går inte att ändra på värdet av en instansvariabel med en getter.
+
+.Getters kan bara hämta värden
+====
+[source, ruby, linenums]
+----
+class Person
+
+  def initialize(name)
+    @name = name
+  end
+
+  def name
+    @name
+  end
+
+end
+
+person = Person.new("Agaton Sax")
+person.name = "Ture Sventon" <1>
+#=> undefined method `name=` for #<Person:0x0000000104750580 @name="Agaton Sax"> (NoMethodError) <2>
+name = person.name <3>
+name = "Ture Sventon" <3>
+puts person.name => "Agaton Sax" <4>
+----
+<1> Ett försök att använda gettern `name` för att ändra på instansvariablen
+<2> Felmeddelandet säger att det inte finns någon setter
+<3> Ett försök att "lura" gettern
+<4> Det gick inte att lura gettern
+====
+
+Setters kan bara ändra värden, inte hämta dem
+
+.Setters kan bara ändra värden
+====
+[source, ruby, linenums]
+----
+class Person
+
+  def initialize(name)
+    @name = name
+  end
+
+  def name=(new_name)
+    @name = new_name
+  end
+
+end
+
+person = Person.new("Agaton Sax") 
+
+puts person.name <1> 
+#=> p.rb:15:in `<main>': undefined method `name' for #<Person:0x0000000106c301e8 @name="Agaton Sax"> (NoMethodError) <2>
+----
+<1> Ett försök att använda settern `name=` för att hämta värdet av instansvariabeln `@name`
+<2> Felmeddelandet säger att det inte finns någon getter
+====
+
+[IMPORTANT]
+====
+I många språk (exempelvis Java) döps getters till `get\<<AttributetsNamn>>` och setters till `set\<<AttributetsNamn>>`. I Ruby är namngivningsstandarden `\<<attributets_namn>>` för getters och `\<<attributet_namn>>=` för setters.
+====
+
+I ruby finns det tre *macron* som skapar getters och setters automatiskt. `attr_reader` skapar en getter, `attr_writer` skapar en setter, och `attr_accessor` skapar både en getter och en setter.
+
+.De olika attr-macrona
+====
+[source, ruby, linenums]
+----
+class Contact
+
+  attr_reader :name, :email <1>
+  attr_writer :name <2>
+  attr_accessor :phone_number <3>
+
+  def initialize(name, email, phone_number)
+    @name = name
+    @email = email
+    @phone_number = phone_number
+  end
+
+end
+c = Contact.new("Agaton Sax", "agaton@sax.nu", "123 45")
+p c.name <4>
+c.name = "Ture Sventon" <5>
+c.phone_number = "123 46" <6>
+p c.phone_number <7>
+----
+<1> Skapar en getter för `name` och `email`.
+<2> Skapar en setter för `name`.
+<3> Skapar en getter och en setter för `phone_number`.
+<4> Använder den autogenererade gettern `name`
+<5> Använder den autogenererade settern `name=`
+<6> Använder den autogenererade settern `phone_number=`
+<7> Använder den autogenererade gettern `phone_number`
+====
+
+[IMPORTANT]
+====
+När man skapar sina klasser är det viktigt att fundera på vilka attribut som ska vara publika (med getters och/eller setters), och vilka som ska vara privata.
+====
+
+== Validering och logik
+
+Ofta vill man att en getter eller setter ska innehålla validering eller annan logik. Då kan man inte använda de olika `attr_xxx` macrona för att skapa dem, utan måste koda dem för hand.
+
+.Validering/logik i en setter
+====
+[source, ruby, linenums]
+----
+class Highscore
+
+
+  def initialize
+    @score = 0
+  end
+ 
+  def score=(new_score)
+    if new_score > @score <1>
+      @score = new_score
+    end
+  end
+end
+hs = Highscore.new
+hs.score = 100 <2>
+hs.score = 50 <3>
+----
+<1> Settern ändrar enbart värdet om det nya värdet är större än det gamla
+<2> Valideringen i settern tillåter ändringen
+<3> Valideringen i settern hindrar ändringen
+====
+
+.Logik i en getter
+====
+[source, ruby, linenums]
+----
+class BankAccount
+
+  def initialize(oren)
+    @balance = oren
+  end
+
+  def balance
+    @balance / 100.0 <1>
+  end  
+
+end
+ba = BankAccount.new(1000)
+p ba.balance => 10.0
+----
+<1> Gettern omvandlar värdet till kronor och ören
+====

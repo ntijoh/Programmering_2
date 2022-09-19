@@ -1,15 +1,23 @@
 = Ordlista
 
 [glossary]
+arv:: Ett sätt att återanvända kod genom att skapa subklasser. En klass som ärver från en annan klass ärver dess metoder och attribut.
 attribut:: Data som lagras i en instans, skapas med _instansvariabler_ (variabler som börjar med `@`, t.ex `@phone_number`).
 camelCase:: Ett sätt att namnge kod (metoder/klasser/variabler etc), där första ordet i namnet börjar med en gemen, och om namnet innehåller flera ord börjar följande ord med en versal `points`, `healthPoints`, `currentUser`. Används *inte* i Ruby (men i t.ex javascript).
-metod:: En funktion som är definerad inne i en klass
-klassmetod:: En metod som är definerad på klassen. Anropas genom `KlassensNamn.metodens_namn`. Skapas genom `def self.metodens_namn`
-instansmetod:: En metod som anropas på instanser av klassen. Anropas genom `instansens_variabel.metodens_namn`. Skapas genom `def metodens_namn`
-instansvariabel:: Se *attribut*
+duck typing:: Används i dynamiskt typade språk. Om en variabel har de efterfrågade metoderna på sig, spelar det då någon roll vad det är för klass? "If it walks like a duck and quacks like a duck - then it must be a duck"..
+getter:: En metod som returnerar värdet på en instansvariabel 
+metod:: En funktion som är definerad inne i en klass.
+instansmetod:: En metod som anropas på instanser av klassen. Anropas genom `instansens_variabel.metodens_namn`. Skapas genom `def metodens_namn`.
+instansvariabel:: Se *attribut*.
+kebab-case:: Ett sätt att namnge kod (metoder/klasser/variabler etc), där varje ord i namnet börjar med en gemen, och om namnet innehåller flera ord länkas de ihop med bindestreck (`-`). T.ex `velocity`, `current_user`, `total_time_in_seconds`. Används *inte* i Ruby (men i t.ex css). 
+klass:: En konstruktion i objektorienterade språk som låter dig skapa en mall för objekt eller samla metoder under ett och samma "tak".
+klassmetod:: En metod som är definerad på klassen. Anropas genom `KlassensNamn.metodens_namn`. Skapas genom `def self.metodens_namn`.
+konstruktor:: En speciell metod som används när man skapar instanser/objekt av en klass. Anropas genom `KlassensNamn.new`.
+macro:: Kod som skriver kod.
 nyckelord:: Ett ord som är reserverat och betyder något speciellt i programmeringsspråket, och därför inte kan användas till något annat. T.ex `class`, `if`, `end`, `def`.
 PascalCase:: Ett sätt att namnge kod (metoder/klasser/variabler etc), där varje ord i namnet börjar med en versal. T.ex `User`, `BankAccount` eller `HTTPRequest`. Används i Ruby för klassnamn.
+setter:: En metod som kan ändra på en instansvariabels värde.
 snake_case:: Ett sätt att namnge kod (metoder/klasser/variabler etc), där varje ord i namnet börjar med en gemen, och om namnet innehåller flera ord länkas de ihop med understreck (`_`). T.ex `amount`, `current_user`, `total_time_in_seconds`. Används i Ruby för variabler och metoder.
-kebab-case:: Ett sätt att namnge kod (metoder/klasser/variabler etc), där varje ord i namnet börjar med en gemen, och om namnet innehåller flera ord länkas de ihop med bindestreck (`-`). T.ex `velocity`, `current_user`, `total_time_in_seconds`. Används *inte* i Ruby (men i t.ex css). 
-konstruktor:: En speciell metod som används när man skapar instanser/objekt av en klass. Anropas genom `KlassensNamn.new`
-state:: Alla variabler och värdet på dessa vid ett givet tillfälle.
+subklass:: En klass som ärver från en annan klass. T.ex `class Student < Person` gör att klassen `Student` ärver från klassen `Person`.
+superklass:: En klass som andra klasser ärver från. T.ex kan `Person` vara en superklass till klassen `Student`.
+state:: Alla variabler och värdet på dessa vid ett givet tillfälle under tiden programmet körs.
