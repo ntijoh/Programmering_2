@@ -13,7 +13,7 @@ kebab-case:: Ett sätt att namnge kod (metoder/klasser/variabler etc), där varj
 klass:: En konstruktion i objektorienterade språk som låter dig skapa en mall för objekt eller samla metoder under ett och samma "tak".
 klassmetod:: En metod som är definerad på klassen. Anropas genom `KlassensNamn.metodens_namn`. Skapas genom `def self.metodens_namn`.
 konstruktor:: En speciell metod som används när man skapar instanser/objekt av en klass. Anropas genom `KlassensNamn.new`.
-macro:: Kod som skriver kod.
+macro:: Kod som genererar kod.
 nyckelord:: Ett ord som är reserverat och betyder något speciellt i programmeringsspråket, och därför inte kan användas till något annat. T.ex `class`, `if`, `end`, `def`.
 PascalCase:: Ett sätt att namnge kod (metoder/klasser/variabler etc), där varje ord i namnet börjar med en versal. T.ex `User`, `BankAccount` eller `HTTPRequest`. Används i Ruby för klassnamn.
 setter:: En metod som kan ändra på en instansvariabels värde.

@@ -78,7 +78,7 @@ end
 
 person = Person.new("Agaton Sax") <2>
 #<Person:0x0000000106a388e0 @name="Agaton Sax">
-puts person.name <3> #=> "Agaton Sax"
+puts person.name #=> "Agaton Sax" <3>
 ----
 <1> instansmetoden `name` är en getter då den hämtar instanvariabeln `@name`.
 <2> En instans av klassen `Person` skapas. Instansvariabeln `@name` sätts till "Agaton Sax".
@@ -173,7 +173,11 @@ puts person.name <1>
 I många språk (exempelvis Java) döps getters till `get\<<AttributetsNamn>>` och setters till `set\<<AttributetsNamn>>`. I Ruby är namngivningsstandarden `\<<attributets_namn>>` för getters och `\<<attributet_namn>>=` för setters.
 ====
 
-I ruby finns det tre *macron* som skapar getters och setters automatiskt. `attr_reader` skapar en getter, `attr_writer` skapar en setter, och `attr_accessor` skapar både en getter och en setter.
+I ruby finns det tre *macron* som skapar getters och setters automatiskt:
+
+* `attr_reader` skapar getters. 
+* `attr_writer` skapar setters. 
+* `attr_accessor` skapar _både_ getters och setters.
 
 .De olika attr-macrona
 ====
@@ -222,7 +226,6 @@ Ofta vill man att en getter eller setter ska innehålla validering eller annan l
 ----
 class Highscore
 
-
   def initialize
     @score = 0
   end
@@ -233,6 +236,7 @@ class Highscore
     end
   end
 end
+
 hs = Highscore.new
 hs.score = 100 <2>
 hs.score = 50 <3>

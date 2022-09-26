@@ -1,0 +1,24 @@
+@startuml Monster
+hide circle
+skinparam dpi 300
+skinparam shadowing false
+skinparam handwritten true
+skinparam monochrome true
+skinparam DefaultFontName xkcd Script
+skinparam classAttributeIconSize 0
+class Orc {
+- health
++ name
+---
++ initialize(health, name)
++ attack
++ growl
+{method} + alive?
+}
+
+class OrcWarrior extends Orc {
+---
++war_cry
+}
+
+@enduml

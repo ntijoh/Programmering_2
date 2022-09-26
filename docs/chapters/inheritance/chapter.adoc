@@ -1,3 +1,233 @@
 = Arv
 
-Arv är ett sätt att återanvända kod. Genom att skapa **subklasser** av en befintlig klass får subklassen tillgång till **superklassens** attribut och metoder. Det går sen att modifiera ärvda metoder och eller lägga till nya (som inte är tillgängliga i superklassen)
+Arv är ett sätt att återanvända kod. Genom att skapa **subklasser** av en befintlig klass får subklassen tillgång till **superklassens** attribut och metoder. Det går sen att modifiera ärvda metoder och eller lägga till nya (som inte är tillgängliga i superklassen).
+
+.Arv i Ruby
+====
+[source, ruby, linenums]
+----
+class A <1>
+  ... <2>
+end
+
+class B < A <3>
+  ... <4>
+end
+----
+<1> Vanlig klassdefinition
+<2> Resten av klassens metoder etc
+<3> `<` anger att klassen ärver från en annan klass. I detta fall ärver klassen `B` från klassen `A`.
+<4> Eventuella metoder som klassen `B` ska ha, som inte finns i klassen `A`, eller som skiljer sig i hur motsvarande metod fungerar från klassen `A`.
+====
+
+[NOTE]
+====
+Om klassen `Student` ärver från klassen `Person` så kan man säga att en `Student` _är en_ `Person`.
+====
+
+.Arv är en _är-en-relation_ mellan två klasser.
+====
+[source, ruby, linenums]
+----
+class Person
+  ...
+end
+
+class Student < Person <1>
+end
+
+person1 = Person.new
+student1 = Student.new
+
+puts person1.class #=> Person
+puts student1.class #=> Student 
+
+puts person1.is_a?(Person) #=> true <2>
+puts student1.is_a?(Person) #=> true <3>
+
+----
+<1> `Student` _är en_ `Person`.
+<2>  Metoden https://ruby-doc.org/core-3.1.2/Object.html#method-i-is_a-3F[is_a?] returnerar `true` om objektet är av klassen som skickas in som argument, _eller en av dess subklasser_.
+<3> `Student` _är en_ `Person`.
+====
+
+[NOTE]
+====
+I Ruby ärver alla klasser från klassen `Object` (om du inte anger någon annan superklass). Det är därför alla objekt har tillgång till metoder som `#is_a?`, `#class`. och `#methods` - de är nämligen definerade i klassen `Object`. Se https://ruby-doc.org/core-3.1.2/Object.html[Object]  på ruby-doc.org.
+====
+
+.Subklasser ärver metoder från superklasser
+====
+[source, ruby, linenums]
+----
+class A 
+
+  def hello
+      "Hello"
+  end
+
+end
+
+
+class B < A
+
+end
+
+b = B.new
+puts b.hello #=> "Hello" <1>
+----
+<1> Klassen `B` ärver instansmetoden `#hello` från klassen `A`.
+====
+
+.Subklasser kan modifiera ärvda metoder
+====
+[source, ruby, linenums]
+----
+class A 
+
+  def hello
+      "Hello from A"
+  end
+
+end
+
+class B < A
+
+  def hello <1>
+      "Hello from B"
+  end
+
+end
+
+a = A.new
+b = B.new
+puts a.hello #=> "Hello from A"
+puts b.hello #=> "Hello from B" <1>
+----
+<1> Klassen `B` _modifierar_ den ärvda instansmetoden `#hello` från klassen `A`.
+====
+
+.Subklasser kan definera egna metoder som inte finns i superklassen
+====
+[source, ruby, linenums]
+----
+class A 
+end
+
+class B < A
+
+  def hello <1>
+      "Hello from B"
+  end
+
+end
+
+a = A.new
+b = B.new
+puts a.hello #=> undefined method `hello' for #<A:0x00000001067585a8> (NoMethodError) <2>
+puts b.hello #=> "Hello from B" <3>
+----
+<1> `B` definerar instansmetoden `#hello`
+<2> `A` har _inte_ instansmetoden `#hello`.
+<3> `B` har instansmetoden `#hello`.
+====
+
+.Nyckelordet `super` låter subklasser anropa motsvarande metod i subperklassen, och eventuellt utveckla den
+====
+[source, ruby, linenums]
+----
+class SmallCat 
+
+  def speak
+      "meow"
+  end
+
+end
+
+class LargeCat < SmallCat
+
+  def speak <1>
+      super.upcase + "!" <2>
+  end
+
+end
+
+small_cat = SmallCat.new
+large_cat = LargeCat.new
+small_cat.speak #=> "meow"
+large_cat.speak #=> "MEOW!"
+----
+<1> `LargeCat` _modifierar_ den ärvda instansmetoden `#speak` från klassen `SmallCat`.
+<2> `super` anropar metoden `#speak` i klassen `SmallCat`.
+====
+
+[NOTE]
+====
+`super` anropar i superklassen metoden med samma namn som den aktuella metoden. Om metoden heter `#speak` så anropas `#speak` i superklassen. Om metoden heter `#hello` så anropas `#hello` i superklassen.
+====
+
+Genom att kombinera alla de ovanstående "verktygen" arv ger oss kan man snabbt skapa varianter av klasser som fungerar liknande, med minimalt antal rader kod som behöver skrivas.
+
+
+.Arv i ett spel(?)
+====
+[source, ruby, linenums]
+----
+class Orc
+
+  attr_reader :name
+
+  def initialize(health = rand(10..20), name="Orc")
+    @health = health
+    @name = name
+  end
+
+  def attack
+    puts "#{@name} Attacked!"
+  end
+
+  def growl
+    puts "#{@name} growled!"
+  end
+
+  def alive?
+    @health > 0
+  end
+
+end
+
+class OrcWarrior < Orc <1>
+
+  def initialize(health = rand(20..50), name="Orc Warrior")) <2>
+    super(health, name) <3>
+  end
+
+  def war_cry <4>
+    puts "WAAAAAAAGH!"
+  end
+
+  def growl <5>
+    puts "#{@name} growled in a menacing way!"
+  end
+
+end
+
+orc = Orc.new
+orc_warrior = OrcWarrior.new
+
+orc_warrior.attack  #=> "Orc Warrior Attacked!" <6>
+
+orc_warrior.war_cry #=> "WAAAAAAAGH!"
+orc.war_cry #=> NoMethodError: undefined method `war_cry' for #<Orc:0x007f9b0a0b8c18> <7>
+
+orc.growl #=> "Orc growled!" <5>
+orc_warrior.growl #=> "Orc Warrior growled in a menacing way!" <5>
+----
+<1> `OrcWarrior` är en *subklass* till `Orc`. `Orc` är alltså en *superklass* till `OrcWarrior`.
+<2> `OrcWarrior` har en egen konstruktor, med andra standardvärden.
+<3> `super` låter subklassen anropa superklassens metod med samma namn (som `super` anropas i). I detta fall `initialize`.
+<4> Subklasser kan definera nya metoder som inte finns i superklassen.
+<5> Subklasser kan _modifiera_ metoder som finns i superklassen. I detta fall `growl`.
+<6> `OrcWarrior` har tillgång till alla metoder definerade i `Orc` eftersom den ärver från den.
+<7> Superklasser har inte tillgång till metoder definerade i subklasser.
+====

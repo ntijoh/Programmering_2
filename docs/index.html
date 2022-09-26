@@ -718,7 +718,7 @@ pre.rouge {
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<div class="title">Exempel</div>
+<div class="title">En liknelse</div>
 <div class="paragraph">
 <p>En liknelse kan vara att alla människor har ett namn (attribut), och har beteendet att säga sitt namn (en metod som säger "Hej, jag heter &lt;&lt;namn&gt;&gt;"), men alla människor är unika varelser med egna, unika namn.</p>
 </div>
@@ -809,7 +809,7 @@ pre.rouge {
 3
 </pre></td><td class="code"><pre><span class="no">Math</span><span class="p">.</span><span class="nf">sqrt</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="c1">#=&gt; 4 </span><i class="conum" data-value="1"></i><b>(1)</b>
 <span class="no">Math</span><span class="p">.</span><span class="nf">cos</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>   <span class="c1">#=&gt; 1.0 </span><i class="conum" data-value="1"></i><b>(1)</b>
-<span class="no">Time</span><span class="p">.</span><span class="nf">now</span>	  <span class="c1">#=&gt; 2022-08-22 10:42:05.348957 +0200 </span><i class="conum" data-value="2"></i><b>(2)</b>
+<span class="no">Time</span><span class="p">.</span><span class="nf">now</span>    <span class="c1">#=&gt; 2022-08-22 10:42:05.348957 +0200 </span><i class="conum" data-value="2"></i><b>(2)</b>
 </pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
@@ -831,7 +831,7 @@ pre.rouge {
 <div class="sect3">
 <h4 id="_mall">1.2.2. Mall</h4>
 <div class="paragraph">
-<p>En mall för att skapa objekt (instanser) som innehåller  attribut (data) och metoder som interagerar med objektets data</p>
+<p>Man kan se klasser som mallar för att skapa objekt (instanser) som innehåller  attribut (data) och metoder som interagerar med objektets data</p>
 </div>
 </div>
 <div class="sect3">
@@ -964,10 +964,10 @@ pre.rouge {
 <h2 id="_klasser_objekt_och_metoder">3. Klasser, objekt och metoder</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Som nämndes i introduktionen finns det många begrepp i objektorienterad programmering, och alla begreppen är sammankopplade. Därför är det svårt att förklara begreppen utan att nämna begrepp som man inte introducerat än.</p>
+<p>Det finns många begrepp i objektorienterad programmering, och alla begrepp är sammankopplade. Därför är det svårt att förklara begreppen utan att nämna begrepp som man inte introducerat än.</p>
 </div>
 <div class="paragraph">
-<p>Det är därför helt förståeligt om man blir frustrerad när ni läser nedanstående avsnitt som ofta refererar till och använder begrepp som inte förklarats än. Förhoppningen är att ni, när ni läst hela kapitlet ska kunna läsa om det med förnyad förståelse.</p>
+<p>Det är därför helt förståeligt om du blir frustrerad när du läser nedanstående avsnitt som ofta refererar till och använder begrepp som inte förklarats än. Förhoppningen är att ni, när ni läst hela kapitlet ska kunna läsa om det med förnyad förståelse.</p>
 </div>
 <div class="sect2">
 <h3 id="_klass">3.1. Klass</h3>
@@ -1006,6 +1006,9 @@ pre.rouge {
 </div>
 <div class="paragraph">
 <p>Förenklat kan man säga att allt du kan lagra i en variabel i Ruby är ett objekt (en instans) av en klass.</p>
+</div>
+<div class="paragraph">
+<p>En liknelse kan vara att när man bygger ett hus utgår man från en ritning. Ritningen skulle i så fall vara en klass, och huset som byggs en instans av klassen. Och på samma sätt som man från en ritning kan bygga flera liknande hus kan man från en klass skapa flera liknande objekt.</p>
 </div>
 <div class="exampleblock">
 <div class="title">Example 4. Några Objekt</div>
@@ -1067,9 +1070,9 @@ pre.rouge {
 </pre></td><td class="code"><pre>
 <span class="k">class</span> <span class="nc">Person</span>
 
-	<span class="k">def</span> <span class="nf">greet</span> <i class="conum" data-value="1"></i><b>(1)</b>
-		<span class="s2">"Hello, my name is </span><span class="si">#{</span><span class="vi">@name</span><span class="si">}</span><span class="s2">"</span>
-	<span class="k">end</span>
+  <span class="k">def</span> <span class="nf">greet</span> <i class="conum" data-value="1"></i><b>(1)</b>
+    <span class="s2">"Hello, my name is </span><span class="si">#{</span><span class="vi">@name</span><span class="si">}</span><span class="s2">"</span>
+  <span class="k">end</span>
 
 <span class="k">end</span>
 </pre></td></tr></tbody></table></code></pre>
@@ -1079,7 +1082,7 @@ pre.rouge {
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Funktionen greet är definerad inne i klassen <code>Person</code> och är alltså inte egentligen en funktion, utan en metod.</td>
+<td>Funktionen <code>greet</code> är definerad inne i klassen <code>Person</code> och är alltså inte egentligen en funktion, utan en metod.</td>
 </tr>
 </table>
 </div>
@@ -1123,9 +1126,9 @@ pre.rouge {
 14
 </pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">Person</span>
 
-	<span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span> <i class="conum" data-value="1"></i><b>(1)</b>
-		<span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span> <i class="conum" data-value="2"></i><b>(2)</b>
-	<span class="k">end</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span> <i class="conum" data-value="1"></i><b>(1)</b>
+    <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span> <i class="conum" data-value="2"></i><b>(2)</b>
+  <span class="k">end</span>
 
 <span class="k">end</span>
 
@@ -1134,7 +1137,7 @@ pre.rouge {
 <span class="n">person2</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'Ture Sventon'</span><span class="p">)</span> <i class="conum" data-value="5"></i><b>(5)</b>
 <span class="o">=&gt;</span> <span class="c1">#&lt;Person:0x000000010463a880 @name="Ture Sventon"&gt; </span><i class="conum" data-value="6"></i><b>(6)</b>
 
-<span class="n">person1</span> <span class="o">==</span> <span class="n">person2</span> <span class="o">=&gt;</span> <span class="kp">false</span> <i class="conum" data-value="7"></i><b>(7)</b>
+<span class="n">person1</span> <span class="o">==</span> <span class="n">person2</span> <span class="c1">#=&gt; false </span><i class="conum" data-value="7"></i><b>(7)</b>
 </pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
@@ -1229,25 +1232,25 @@ pre.rouge {
 41
 </pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">Contact</span>
 
-	<span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span> <i class="conum" data-value="1"></i><b>(1)</b>
-		<span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span>  <i class="conum" data-value="2"></i><b>(2)</b>
-		<span class="vi">@phone_numbers</span> <span class="o">=</span> <span class="p">[]</span> <i class="conum" data-value="2"></i><b>(2)</b>
-	<span class="k">end</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span> <i class="conum" data-value="1"></i><b>(1)</b>
+    <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span>  <i class="conum" data-value="2"></i><b>(2)</b>
+    <span class="vi">@phone_numbers</span> <span class="o">=</span> <span class="p">[]</span> <i class="conum" data-value="2"></i><b>(2)</b>
+  <span class="k">end</span>
 
-	<span class="k">def</span> <span class="nf">add_phone_number</span><span class="p">(</span><span class="n">new_number</span><span class="p">)</span> <i class="conum" data-value="3"></i><b>(3)</b>
-		<span class="vi">@phone_numbers</span> <span class="o">&lt;&lt;</span> <span class="n">new_number</span>
-	<span class="k">end</span>
+  <span class="k">def</span> <span class="nf">add_phone_number</span><span class="p">(</span><span class="n">new_number</span><span class="p">)</span> <i class="conum" data-value="3"></i><b>(3)</b>
+    <span class="vi">@phone_numbers</span> <span class="o">&lt;&lt;</span> <span class="n">new_number</span>
+  <span class="k">end</span>
 
-	<span class="k">def</span> <span class="nf">delete_phone_number</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <i class="conum" data-value="3"></i><b>(3)</b>
-		<span class="vi">@phone_numbers</span><span class="p">.</span><span class="nf">delete</span> <span class="p">{</span><span class="o">|</span><span class="n">num</span><span class="o">|</span> <span class="n">num</span> <span class="o">==</span> <span class="n">number</span><span class="p">}</span>
-	<span class="k">end</span>
+  <span class="k">def</span> <span class="nf">delete_phone_number</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <i class="conum" data-value="3"></i><b>(3)</b>
+    <span class="vi">@phone_numbers</span><span class="p">.</span><span class="nf">delete</span> <span class="p">{</span><span class="o">|</span><span class="n">num</span><span class="o">|</span> <span class="n">num</span> <span class="o">==</span> <span class="n">number</span><span class="p">}</span>
+  <span class="k">end</span>
 
-	<span class="k">def</span> <span class="nf">list_numbers</span> <i class="conum" data-value="2"></i><b>(2)</b>
-		<span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="vi">@name</span><span class="si">}</span><span class="s2">:"</span>
-		<span class="vi">@phone_numbers</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">number</span><span class="o">|</span>
-			<span class="nb">puts</span> <span class="s2">"</span><span class="se">\t</span><span class="si">#{</span><span class="n">number</span><span class="si">}</span><span class="s2">"</span>
-		<span class="k">end</span>
-	<span class="k">end</span>
+  <span class="k">def</span> <span class="nf">list_numbers</span> <i class="conum" data-value="2"></i><b>(2)</b>
+    <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="vi">@name</span><span class="si">}</span><span class="s2">:"</span>
+    <span class="vi">@phone_numbers</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">number</span><span class="o">|</span>
+      <span class="nb">puts</span> <span class="s2">"</span><span class="se">\t</span><span class="si">#{</span><span class="n">number</span><span class="si">}</span><span class="s2">"</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
 
 <span class="k">end</span>
 
@@ -1262,12 +1265,12 @@ pre.rouge {
 
 <span class="n">c1</span><span class="p">.</span><span class="nf">list_numbers</span> <i class="conum" data-value="6"></i><b>(6)</b>
 <span class="no">Hermione</span> <span class="no">Granger</span>
-	<span class="mi">555</span><span class="o">-</span><span class="mi">123</span> <span class="mi">45</span> <span class="mi">67</span>
-	<span class="mi">555</span><span class="o">-</span><span class="mi">765</span> <span class="mi">43</span> <span class="mi">21</span>
+  <span class="mi">555</span><span class="o">-</span><span class="mi">123</span> <span class="mi">45</span> <span class="mi">67</span>
+  <span class="mi">555</span><span class="o">-</span><span class="mi">765</span> <span class="mi">43</span> <span class="mi">21</span>
 
 <span class="n">c2</span><span class="p">.</span><span class="nf">list_numbers</span> <i class="conum" data-value="6"></i><b>(6)</b>
 <span class="no">Ron</span> <span class="no">Weasly</span>
-	<span class="mi">555</span><span class="o">-</span><span class="mi">123</span> <span class="mi">45</span> <span class="mi">67</span>
+  <span class="mi">555</span><span class="o">-</span><span class="mi">123</span> <span class="mi">45</span> <span class="mi">67</span>
 </pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
@@ -1308,7 +1311,7 @@ pre.rouge {
 <p>Klassmetoder är metoder som är definerade på "klass-nivå". Detta innebär att man inte behöver skapa instanser av klassen för att interagera med metoden. Klassmetoder har <em>inte</em> tillgång till klassens olika instanser eller deras metoder eller attribut.</p>
 </div>
 <div class="paragraph">
-<p>Klassmetoder används när det inte är vettigt att först skapa en instans för att använda en metod, och kan primärt ses som ett sett att strukturera kod. Ofta kan man använda moduler och modulmetoder istället för klasser och klassemetoder istället. Se tillexempel <code>Math.sin</code> eller <code>Time.now</code>.</p>
+<p>Klassmetoder används när det inte är vettigt att först skapa en instans för att använda en metod, och kan primärt ses som ett sätt att organisera kod. Se tillexempel <code>Math.sin</code> eller <code>Time.now</code>.</p>
 </div>
 <div class="paragraph">
 <p>För att visa att något är en klassmetod brukar man skriva <code>::</code> före metodens namn i dokumentation (<code>Math::sin</code>, <code>Time::now</code>)</p>
@@ -1336,13 +1339,13 @@ pre.rouge {
 13
 </pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">Greeting</span>
 
-	<span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">good</span> <i class="conum" data-value="1"></i><b>(1)</b>
-		<span class="s2">"Hello, what a wonderful day"</span>
-	<span class="k">end</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">good</span> <i class="conum" data-value="1"></i><b>(1)</b>
+    <span class="s2">"Hello, what a wonderful day"</span>
+  <span class="k">end</span>
 
-	<span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">bad</span> <i class="conum" data-value="1"></i><b>(1)</b>
-		<span class="s2">"What do you want?"</span>
-	<span class="k">end</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">bad</span> <i class="conum" data-value="1"></i><b>(1)</b>
+    <span class="s2">"What do you want?"</span>
+  <span class="k">end</span>
 <span class="k">end</span>
 
 <span class="nb">puts</span> <span class="no">Greeting</span><span class="p">.</span><span class="nf">good</span> <span class="c1">#=&gt; "Hello, what a wonderful day" </span><i class="conum" data-value="2"></i><b>(2)</b>
@@ -1358,7 +1361,7 @@ pre.rouge {
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>Anrop av klassmetoderna. Observera att <code>#new</code> aldrig anropas.</td>
+<td>Anrop av klassmetoderna. Observera att <code>::new</code> aldrig anropas.</td>
 </tr>
 </table>
 </div>
@@ -1509,7 +1512,7 @@ pre.rouge {
 
 <span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Agaton Sax"</span><span class="p">)</span> <i class="conum" data-value="2"></i><b>(2)</b>
 <span class="c1">#&lt;Person:0x0000000106a388e0 @name="Agaton Sax"&gt;</span>
-<span class="nb">puts</span> <span class="n">person</span><span class="p">.</span><span class="nf">name</span> <span class="o">&lt;</span><span class="mi">3</span><span class="o">&gt;</span> <span class="c1">#=&gt; "Agaton Sax"</span>
+<span class="nb">puts</span> <span class="n">person</span><span class="p">.</span><span class="nf">name</span> <span class="c1">#=&gt; "Agaton Sax" </span><i class="conum" data-value="3"></i><b>(3)</b>
 </pre></td></tr></tbody></table></code></pre>
 </div>
 </div>
@@ -1728,7 +1731,20 @@ pre.rouge {
 </table>
 </div>
 <div class="paragraph">
-<p>I ruby finns det tre <strong>macron</strong> som skapar getters och setters automatiskt. <code>attr_reader</code> skapar en getter, <code>attr_writer</code> skapar en setter, och <code>attr_accessor</code> skapar både en getter och en setter.</p>
+<p>I ruby finns det tre <strong>macron</strong> som skapar getters och setters automatiskt:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>attr_reader</code> skapar getters.</p>
+</li>
+<li>
+<p><code>attr_writer</code> skapar setters.</p>
+</li>
+<li>
+<p><code>attr_accessor</code> skapar <em>både</em> getters och setters.</p>
+</li>
+</ul>
 </div>
 <div class="exampleblock">
 <div class="title">Example 14. De olika attr-macrona</div>
@@ -1851,7 +1867,6 @@ pre.rouge {
 16
 </pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">Highscore</span>
 
-
   <span class="k">def</span> <span class="nf">initialize</span>
     <span class="vi">@score</span> <span class="o">=</span> <span class="mi">0</span>
   <span class="k">end</span>
@@ -1862,6 +1877,7 @@ pre.rouge {
     <span class="k">end</span>
   <span class="k">end</span>
 <span class="k">end</span>
+
 <span class="n">hs</span> <span class="o">=</span> <span class="no">Highscore</span><span class="p">.</span><span class="nf">new</span>
 <span class="n">hs</span><span class="p">.</span><span class="nf">score</span> <span class="o">=</span> <span class="mi">100</span> <i class="conum" data-value="2"></i><b>(2)</b>
 <span class="n">hs</span><span class="p">.</span><span class="nf">score</span> <span class="o">=</span> <span class="mi">50</span> <i class="conum" data-value="3"></i><b>(3)</b>
@@ -1937,14 +1953,569 @@ pre.rouge {
 <h2 id="_arv">5. Arv</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Arv är ett sätt att återanvända kod. Genom att skapa <strong>subklasser</strong> av en befintlig klass får subklassen tillgång till <strong>superklassens</strong> attribut och metoder. Det går sen att modifiera ärvda metoder och eller lägga till nya (som inte är tillgängliga i superklassen)</p>
+<p>Arv är ett sätt att återanvända kod. Genom att skapa <strong>subklasser</strong> av en befintlig klass får subklassen tillgång till <strong>superklassens</strong> attribut och metoder. Det går sen att modifiera ärvda metoder och eller lägga till nya (som inte är tillgängliga i superklassen).</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 17. Arv i Ruby</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="ruby"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">A</span> <i class="conum" data-value="1"></i><b>(1)</b>
+  <span class="o">...</span> <i class="conum" data-value="2"></i><b>(2)</b>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">B</span> <span class="o">&lt;</span> <span class="no">A</span> <i class="conum" data-value="3"></i><b>(3)</b>
+  <span class="o">...</span> <i class="conum" data-value="4"></i><b>(4)</b>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Vanlig klassdefinition</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Resten av klassens metoder etc</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td><code>&lt;</code> anger att klassen ärver från en annan klass. I detta fall ärver klassen <code>B</code> från klassen <code>A</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Eventuella metoder som klassen <code>B</code> ska ha, som inte finns i klassen <code>A</code>, eller som skiljer sig i hur motsvarande metod fungerar från klassen <code>A</code>.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Om klassen <code>Student</code> ärver från klassen <code>Person</code> så kan man säga att en <code>Student</code> <em>är en</em> <code>Person</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="title">Example 18. Arv är en <em>är-en-relation</em> mellan två klasser.</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="ruby"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">Person</span>
+  <span class="o">...</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Student</span> <span class="o">&lt;</span> <span class="no">Person</span> <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="k">end</span>
+
+<span class="n">person1</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">student1</span> <span class="o">=</span> <span class="no">Student</span><span class="p">.</span><span class="nf">new</span>
+
+<span class="nb">puts</span> <span class="n">person1</span><span class="p">.</span><span class="nf">class</span> <span class="c1">#=&gt; Person</span>
+<span class="nb">puts</span> <span class="n">student1</span><span class="p">.</span><span class="nf">class</span> <span class="c1">#=&gt; Student</span>
+
+<span class="nb">puts</span> <span class="n">person1</span><span class="p">.</span><span class="nf">is_a?</span><span class="p">(</span><span class="no">Person</span><span class="p">)</span> <span class="c1">#=&gt; true </span><i class="conum" data-value="2"></i><b>(2)</b>
+<span class="nb">puts</span> <span class="n">student1</span><span class="p">.</span><span class="nf">is_a?</span><span class="p">(</span><span class="no">Person</span><span class="p">)</span> <span class="c1">#=&gt; true </span><i class="conum" data-value="3"></i><b>(3)</b>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>Student</code> <em>är en</em> <code>Person</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Metoden <a href="https://ruby-doc.org/core-3.1.2/Object.html#method-i-is_a-3F">is_a?</a> returnerar <code>true</code> om objektet är av klassen som skickas in som argument, <em>eller en av dess subklasser</em>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td><code>Student</code> <em>är en</em> <code>Person</code>.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>I Ruby ärver alla klasser från klassen <code>Object</code> (om du inte anger någon annan superklass). Det är därför alla objekt har tillgång till metoder som <code>#is_a?</code>, <code>#class</code>. och <code>#methods</code> - de är nämligen definerade i klassen <code>Object</code>. Se <a href="https://ruby-doc.org/core-3.1.2/Object.html">Object</a>  på ruby-doc.org.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="title">Example 19. Subklasser ärver metoder från superklasser</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="ruby"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">A</span>
+
+  <span class="k">def</span> <span class="nf">hello</span>
+      <span class="s2">"Hello"</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+
+
+<span class="k">class</span> <span class="nc">B</span> <span class="o">&lt;</span> <span class="no">A</span>
+
+<span class="k">end</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="no">B</span><span class="p">.</span><span class="nf">new</span>
+<span class="nb">puts</span> <span class="n">b</span><span class="p">.</span><span class="nf">hello</span> <span class="c1">#=&gt; "Hello" </span><i class="conum" data-value="1"></i><b>(1)</b>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Klassen <code>B</code> ärver instansmetoden <code>#hello</code> från klassen <code>A</code>.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 20. Subklasser kan modifiera ärvda metoder</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="ruby"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">A</span>
+
+  <span class="k">def</span> <span class="nf">hello</span>
+      <span class="s2">"Hello from A"</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">B</span> <span class="o">&lt;</span> <span class="no">A</span>
+
+  <span class="k">def</span> <span class="nf">hello</span> <i class="conum" data-value="1"></i><b>(1)</b>
+      <span class="s2">"Hello from B"</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="no">A</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">b</span> <span class="o">=</span> <span class="no">B</span><span class="p">.</span><span class="nf">new</span>
+<span class="nb">puts</span> <span class="n">a</span><span class="p">.</span><span class="nf">hello</span> <span class="c1">#=&gt; "Hello from A"</span>
+<span class="nb">puts</span> <span class="n">b</span><span class="p">.</span><span class="nf">hello</span> <span class="c1">#=&gt; "Hello from B" </span><i class="conum" data-value="1"></i><b>(1)</b>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Klassen <code>B</code> <em>modifierar</em> den ärvda instansmetoden <code>#hello</code> från klassen <code>A</code>.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 21. Subklasser kan definera egna metoder som inte finns i superklassen</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="ruby"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">A</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">B</span> <span class="o">&lt;</span> <span class="no">A</span>
+
+  <span class="k">def</span> <span class="nf">hello</span> <i class="conum" data-value="1"></i><b>(1)</b>
+      <span class="s2">"Hello from B"</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="no">A</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">b</span> <span class="o">=</span> <span class="no">B</span><span class="p">.</span><span class="nf">new</span>
+<span class="nb">puts</span> <span class="n">a</span><span class="p">.</span><span class="nf">hello</span> <span class="c1">#=&gt; undefined method `hello' for #&lt;A:0x00000001067585a8&gt; (NoMethodError) </span><i class="conum" data-value="2"></i><b>(2)</b>
+<span class="nb">puts</span> <span class="n">b</span><span class="p">.</span><span class="nf">hello</span> <span class="c1">#=&gt; "Hello from B" </span><i class="conum" data-value="3"></i><b>(3)</b>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>B</code> definerar instansmetoden <code>#hello</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td><code>A</code> har <em>inte</em> instansmetoden <code>#hello</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td><code>B</code> har instansmetoden <code>#hello</code>.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 22. Nyckelordet <code>super</code> låter subklasser anropa motsvarande metod i subperklassen, och eventuellt utveckla den</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="ruby"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">SmallCat</span>
+
+  <span class="k">def</span> <span class="nf">speak</span>
+      <span class="s2">"meow"</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">LargeCat</span> <span class="o">&lt;</span> <span class="no">SmallCat</span>
+
+  <span class="k">def</span> <span class="nf">speak</span> <i class="conum" data-value="1"></i><b>(1)</b>
+      <span class="k">super</span><span class="p">.</span><span class="nf">upcase</span> <span class="o">+</span> <span class="s2">"!"</span> <i class="conum" data-value="2"></i><b>(2)</b>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+
+<span class="n">small_cat</span> <span class="o">=</span> <span class="no">SmallCat</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">large_cat</span> <span class="o">=</span> <span class="no">LargeCat</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">small_cat</span><span class="p">.</span><span class="nf">speak</span> <span class="c1">#=&gt; "meow"</span>
+<span class="n">large_cat</span><span class="p">.</span><span class="nf">speak</span> <span class="c1">#=&gt; "MEOW!"</span>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>LargeCat</code> <em>modifierar</em> den ärvda instansmetoden <code>#speak</code> från klassen <code>SmallCat</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td><code>super</code> anropar metoden <code>#speak</code> i klassen <code>SmallCat</code>.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>super</code> anropar i superklassen metoden med samma namn som den aktuella metoden. Om metoden heter <code>#speak</code> så anropas <code>#speak</code> i superklassen. Om metoden heter <code>#hello</code> så anropas <code>#hello</code> i superklassen.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Genom att kombinera alla de ovanstående "verktygen" arv ger oss kan man snabbt skapa varianter av klasser som fungerar liknande, med minimalt antal rader kod som behöver skrivas.</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 23. Arv i ett spel(?)</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="ruby"><table class="linenotable"><tbody><tr><td class="linenos gl"><pre class="lineno"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+</pre></td><td class="code"><pre><span class="k">class</span> <span class="nc">Orc</span>
+
+  <span class="nb">attr_reader</span> <span class="ss">:name</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">health</span> <span class="o">=</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">10</span><span class="o">..</span><span class="mi">20</span><span class="p">),</span> <span class="nb">name</span><span class="o">=</span><span class="s2">"Orc"</span><span class="p">)</span>
+    <span class="vi">@health</span> <span class="o">=</span> <span class="n">health</span>
+    <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">attack</span>
+    <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="vi">@name</span><span class="si">}</span><span class="s2"> Attacked!"</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">growl</span>
+    <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="vi">@name</span><span class="si">}</span><span class="s2"> growled!"</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">alive?</span>
+    <span class="vi">@health</span> <span class="o">&gt;</span> <span class="mi">0</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">OrcWarrior</span> <span class="o">&lt;</span> <span class="no">Orc</span> <i class="conum" data-value="1"></i><b>(1)</b>
+
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">health</span> <span class="o">=</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">20</span><span class="o">..</span><span class="mi">50</span><span class="p">),</span> <span class="nb">name</span><span class="o">=</span><span class="s2">"Orc Warrior"</span><span class="p">))</span> <i class="conum" data-value="2"></i><b>(2)</b>
+    <span class="k">super</span><span class="p">(</span><span class="n">health</span><span class="p">,</span> <span class="nb">name</span><span class="p">)</span> <i class="conum" data-value="3"></i><b>(3)</b>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">war_cry</span> <i class="conum" data-value="4"></i><b>(4)</b>
+    <span class="nb">puts</span> <span class="s2">"WAAAAAAAGH!"</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">growl</span> <i class="conum" data-value="5"></i><b>(5)</b>
+    <span class="nb">puts</span> <span class="s2">"</span><span class="si">#{</span><span class="vi">@name</span><span class="si">}</span><span class="s2"> growled in a menacing way!"</span>
+  <span class="k">end</span>
+
+<span class="k">end</span>
+
+<span class="n">orc</span> <span class="o">=</span> <span class="no">Orc</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">orc_warrior</span> <span class="o">=</span> <span class="no">OrcWarrior</span><span class="p">.</span><span class="nf">new</span>
+
+<span class="n">orc_warrior</span><span class="p">.</span><span class="nf">attack</span>  <span class="c1">#=&gt; "Orc Warrior Attacked!" </span><i class="conum" data-value="6"></i><b>(6)</b>
+
+<span class="n">orc_warrior</span><span class="p">.</span><span class="nf">war_cry</span> <span class="c1">#=&gt; "WAAAAAAAGH!"</span>
+<span class="n">orc</span><span class="p">.</span><span class="nf">war_cry</span> <span class="c1">#=&gt; NoMethodError: undefined method `war_cry' for #&lt;Orc:0x007f9b0a0b8c18&gt; </span><i class="conum" data-value="7"></i><b>(7)</b>
+
+<span class="n">orc</span><span class="p">.</span><span class="nf">growl</span> <span class="c1">#=&gt; "Orc growled!" </span><i class="conum" data-value="5"></i><b>(5)</b>
+<span class="n">orc_warrior</span><span class="p">.</span><span class="nf">growl</span> <span class="c1">#=&gt; "Orc Warrior growled in a menacing way!" </span><i class="conum" data-value="5"></i><b>(5)</b>
+</pre></td></tr></tbody></table></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>OrcWarrior</code> är en <strong>subklass</strong> till <code>Orc</code>. <code>Orc</code> är alltså en <strong>superklass</strong> till <code>OrcWarrior</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td><code>OrcWarrior</code> har en egen konstruktor, med andra standardvärden.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td><code>super</code> låter subklassen anropa superklassens metod med samma namn (som <code>super</code> anropas i). I detta fall <code>initialize</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Subklasser kan definera nya metoder som inte finns i superklassen.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Subklasser kan <em>modifiera</em> metoder som finns i superklassen. I detta fall <code>growl</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td><code>OrcWarrior</code> har tillgång till alla metoder definerade i <code>Orc</code> eftersom den ärver från den.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>Superklasser har inte tillgång till metoder definerade i subklasser.</td>
+</tr>
+</table>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_klassdiagram">6. Klassdiagram</h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>För att snabbt kunna visualisera vad en klass har för metoder och attribut, och vad den har för relationer till andra klasser kan man använda <strong>klassdiagram</strong></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="openblock float-group">
+<div class="content">
+<div class="imageblock related thumb left">
+<div class="content">
+<img src="chapters/class_diagrams/images/orc.png" alt="Orc &amp; OrcWarrior" width="500" height="300">
+</div>
+<div class="title">Ett klassdiagram för Orc-exemplet längre upp</div>
+</div>
+<div class="paragraph">
+<p>Klassdiagram består av en rektangel med tre rutor.</p>
+</div>
+<div class="paragraph">
+<p>Den översta rutan innehåller klassens namn.</p>
+</div>
+<div class="paragraph">
+<p>Nästa ruta innehåller klassens attribut.</p>
+</div>
+<div class="paragraph">
+<p>Den tredje rutan innehåller klassens metoder.</p>
+</div>
+<div class="paragraph">
+<p>I exemplet ovan har vi en klass som heter Orc, och den har attributen <code>name</code> och <code>health</code>. <code>health</code> är privat, men <code>name</code> är publik (i kod innebär det antagligen att <code>name</code> har en getter, men det har inte <code>health</code>)</p>
+</div>
+<div class="paragraph">
+<p><code>Orc</code> har också följande metoder: <code>initialize</code> (konstruktorn) som tar två argument, och <code>attack</code>, <code>growl</code> och <code>alive?</code>.</p>
+</div>
+<div class="paragraph">
+<p>Klassen har också en relation till klassen <code>OrcWarrior</code>, och det visas med en pil från <code>OrcWarrior</code> till <code>Orc</code>. Detta betyder att en <code>OrcWarrior</code> ärver från <code>Orc</code>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Klassdiagram är bra när man vill förmedla hur en klass ska se ut, eller när man vill dokumentera ett befintligt system.</p>
+</div>
+<div id="img-ruby-class-diagram" class="imageblock">
+<div class="content">
+<a class="image" href="http://jeromedalbert.com/a-diagram-of-the-ruby-core-object-model/"><img src="chapters/class_diagrams/images/ruby.jpg" alt="Ett klassdiagram över rubys inbyggda klasser"></a>
+</div>
+<div class="title">Ett klassdiagram över rubys inbyggda klasser (utan metoder och attribut)</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -2002,7 +2573,7 @@ pre.rouge {
 </dd>
 <dt>macro</dt>
 <dd>
-<p>Kod som skriver kod.</p>
+<p>Kod som genererar kod.</p>
 </dd>
 <dt>nyckelord</dt>
 <dd>
@@ -2039,7 +2610,7 @@ pre.rouge {
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-09-16 16:06:44 +0200
+Last updated 2022-09-19 09:50:06 +0200
 </div>
 </div>
 </body>

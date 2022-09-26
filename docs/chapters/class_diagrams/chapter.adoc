@@ -1,1 +1,34 @@
+:imagesdir: chapters/class_diagrams/images
+
 = Klassdiagram
+
+För att snabbt kunna visualisera vad en klass har för metoder och attribut, och vad den har för relationer till andra klasser kan man använda **klassdiagram**
+
+****
+[.float-group]
+--
+.Ett klassdiagram för Orc-exemplet längre upp
+image::orc.png[Orc & OrcWarrior, 500,300,role="related thumb left"]
+
+Klassdiagram består av en rektangel med tre rutor. 
+
+Den översta rutan innehåller klassens namn.
+
+Nästa ruta innehåller klassens attribut.
+
+Den tredje rutan innehåller klassens metoder.
+
+I exemplet ovan har vi en klass som heter Orc, och den har attributen `name` och `health`. `health` är privat, men `name` är publik (i kod innebär det antagligen att `name` har en getter, men det har inte `health`) 
+
+`Orc` har också följande metoder: `initialize` (konstruktorn) som tar två argument, och `attack`, `growl` och `alive?`.
+
+Klassen har också en relation till klassen `OrcWarrior`, och det visas med en pil från `OrcWarrior` till `Orc`. Detta betyder att en `OrcWarrior` ärver från `Orc`. 
+--
+****
+
+Klassdiagram är bra när man vill förmedla hur en klass ska se ut, eller när man vill dokumentera ett befintligt system.
+
+[#img-ruby-class-diagram]
+.Ett klassdiagram över rubys inbyggda klasser (utan metoder och attribut)
+[link=http://jeromedalbert.com/a-diagram-of-the-ruby-core-object-model/] 
+image::ruby.jpg[Ett klassdiagram över rubys inbyggda klasser]
